@@ -573,7 +573,7 @@
 					};
 					13B07F861A680F5B00A75B9A = {
 						DevelopmentTeam = GHJH7CHNSP;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 					2D02E47A1E0B4A5D006451C7 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -1013,8 +1013,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = net.lobo.koder;
 				PRODUCT_NAME = FiestaApp2017;
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "fc80012e-b776-494e-952f-f9ac97d2a316";
+				PROVISIONING_PROFILE_SPECIFIER = FiestaApp2017;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
@@ -1035,8 +1035,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = net.lobo.koder;
 				PRODUCT_NAME = FiestaApp2017;
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "fc80012e-b776-494e-952f-f9ac97d2a316";
+				PROVISIONING_PROFILE_SPECIFIER = FiestaApp2017;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
