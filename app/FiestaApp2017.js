@@ -24,6 +24,7 @@ class FiestaApp2017 extends Component {
           Press Cmd+R to reload,{'\n'}
           Cmd+D or shake for dev menu
         </Text>
+        <Text>Add random text to test circleci</Text>
       </View>
     )
   }
