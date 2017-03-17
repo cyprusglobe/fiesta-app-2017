@@ -223,40 +223,40 @@
 			remoteGlobalIDString = 5419C2701D824AA700DDF3A1;
 			remoteInfo = RNCrashes;
 		};
-		3EFC0F181E7B6D18005815A9 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 3EFC0F111E7B6D18005815A9 /* Pods.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = B2901B5EA0975D8D77F20F655C9CEF19;
-			remoteInfo = "Pods-FiestaApp2017";
-		};
-		3EFC0F1A1E7B6D18005815A9 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 3EFC0F111E7B6D18005815A9 /* Pods.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = BA7B25E7D01DA5ED29D043CE53DDA530;
-			remoteInfo = "Pods-FiestaApp2017-tvOS";
-		};
-		3EFC0F1C1E7B6D18005815A9 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 3EFC0F111E7B6D18005815A9 /* Pods.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 85BFE822F6B1C0012D19A1206CE0A6AE;
-			remoteInfo = "Pods-FiestaApp2017-tvOSTests";
-		};
-		3EFC0F1E1E7B6D18005815A9 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 3EFC0F111E7B6D18005815A9 /* Pods.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = E2143A6B3C02480BF0C14403D088D70C;
-			remoteInfo = "Pods-FiestaApp2017Tests";
-		};
 		3EFC0F4C1E7B6E82005815A9 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = C233921ACB584AF79017CB7D /* CodePush.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 134814201AA4EA6300B7C361;
 			remoteInfo = CodePush;
+		};
+		3EFC0F9F1E7B79E6005815A9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3EFC0F981E7B79E6005815A9 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = B2901B5EA0975D8D77F20F655C9CEF19;
+			remoteInfo = "Pods-FiestaApp2017";
+		};
+		3EFC0FA11E7B79E6005815A9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3EFC0F981E7B79E6005815A9 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = BA7B25E7D01DA5ED29D043CE53DDA530;
+			remoteInfo = "Pods-FiestaApp2017-tvOS";
+		};
+		3EFC0FA31E7B79E6005815A9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3EFC0F981E7B79E6005815A9 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 85BFE822F6B1C0012D19A1206CE0A6AE;
+			remoteInfo = "Pods-FiestaApp2017-tvOSTests";
+		};
+		3EFC0FA51E7B79E6005815A9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3EFC0F981E7B79E6005815A9 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = E2143A6B3C02480BF0C14403D088D70C;
+			remoteInfo = "Pods-FiestaApp2017Tests";
 		};
 		5E9157321DD0AC6500FF2AA8 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -314,7 +314,7 @@
 		2D02E47B1E0B4A5D006451C7 /* FiestaApp2017-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "FiestaApp2017-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02E4901E0B4A5D006451C7 /* FiestaApp2017-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "FiestaApp2017-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3CFAFE0CBEEC73F9EB5F0D2A /* Pods-FiestaApp2017Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FiestaApp2017Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-FiestaApp2017Tests/Pods-FiestaApp2017Tests.release.xcconfig"; sourceTree = "<group>"; };
-		3EFC0F111E7B6D18005815A9 /* Pods.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Pods.xcodeproj; path = Pods/Pods.xcodeproj; sourceTree = "<group>"; };
+		3EFC0F981E7B79E6005815A9 /* Pods.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Pods.xcodeproj; path = Pods/Pods.xcodeproj; sourceTree = "<group>"; };
 		4DBABC014853F8E5D21523E9 /* Pods-FiestaApp2017Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FiestaApp2017Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FiestaApp2017Tests/Pods-FiestaApp2017Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		51AF5B8E2D8D42A1A7E74044 /* RNAnalytics.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNAnalytics.xcodeproj; path = "../node_modules/mobile-center-analytics/ios/RNAnalytics.xcodeproj"; sourceTree = "<group>"; };
 		5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTAnimation.xcodeproj; path = "../node_modules/react-native/Libraries/NativeAnimation/RCTAnimation.xcodeproj"; sourceTree = "<group>"; };
@@ -518,21 +518,21 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		3EFC0F121E7B6D18005815A9 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				3EFC0F191E7B6D18005815A9 /* libPods-FiestaApp2017.a */,
-				3EFC0F1B1E7B6D18005815A9 /* libPods-FiestaApp2017-tvOS.a */,
-				3EFC0F1D1E7B6D18005815A9 /* libPods-FiestaApp2017-tvOSTests.a */,
-				3EFC0F1F1E7B6D18005815A9 /* libPods-FiestaApp2017Tests.a */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		3EFC0F491E7B6E82005815A9 /* Products */ = {
 			isa = PBXGroup;
 			children = (
 				3EFC0F4D1E7B6E82005815A9 /* libCodePush.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3EFC0F991E7B79E6005815A9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3EFC0FA01E7B79E6005815A9 /* libPods-FiestaApp2017.a */,
+				3EFC0FA21E7B79E6005815A9 /* libPods-FiestaApp2017-tvOS.a */,
+				3EFC0FA41E7B79E6005815A9 /* libPods-FiestaApp2017-tvOSTests.a */,
+				3EFC0FA61E7B79E6005815A9 /* libPods-FiestaApp2017Tests.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -558,7 +558,7 @@
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
-				3EFC0F111E7B6D18005815A9 /* Pods.xcodeproj */,
+				3EFC0F981E7B79E6005815A9 /* Pods.xcodeproj */,
 				5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */,
 				146833FF1AC3E56700842450 /* React.xcodeproj */,
 				00C302A71ABCB8CE00DB3ED1 /* RCTActionSheet.xcodeproj */,
@@ -771,8 +771,8 @@
 					ProjectRef = C233921ACB584AF79017CB7D /* CodePush.xcodeproj */;
 				},
 				{
-					ProductGroup = 3EFC0F121E7B6D18005815A9 /* Products */;
-					ProjectRef = 3EFC0F111E7B6D18005815A9 /* Pods.xcodeproj */;
+					ProductGroup = 3EFC0F991E7B79E6005815A9 /* Products */;
+					ProjectRef = 3EFC0F981E7B79E6005815A9 /* Pods.xcodeproj */;
 				},
 				{
 					ProductGroup = 00C302A81ABCB8CE00DB3ED1 /* Products */;
@@ -999,39 +999,39 @@
 			remoteRef = 3EE91B481E7B611000FF8BE0 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		3EFC0F191E7B6D18005815A9 /* libPods-FiestaApp2017.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = "libPods-FiestaApp2017.a";
-			remoteRef = 3EFC0F181E7B6D18005815A9 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		3EFC0F1B1E7B6D18005815A9 /* libPods-FiestaApp2017-tvOS.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = "libPods-FiestaApp2017-tvOS.a";
-			remoteRef = 3EFC0F1A1E7B6D18005815A9 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		3EFC0F1D1E7B6D18005815A9 /* libPods-FiestaApp2017-tvOSTests.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = "libPods-FiestaApp2017-tvOSTests.a";
-			remoteRef = 3EFC0F1C1E7B6D18005815A9 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		3EFC0F1F1E7B6D18005815A9 /* libPods-FiestaApp2017Tests.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = "libPods-FiestaApp2017Tests.a";
-			remoteRef = 3EFC0F1E1E7B6D18005815A9 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
 		3EFC0F4D1E7B6E82005815A9 /* libCodePush.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
 			path = libCodePush.a;
 			remoteRef = 3EFC0F4C1E7B6E82005815A9 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		3EFC0FA01E7B79E6005815A9 /* libPods-FiestaApp2017.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libPods-FiestaApp2017.a";
+			remoteRef = 3EFC0F9F1E7B79E6005815A9 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		3EFC0FA21E7B79E6005815A9 /* libPods-FiestaApp2017-tvOS.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libPods-FiestaApp2017-tvOS.a";
+			remoteRef = 3EFC0FA11E7B79E6005815A9 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		3EFC0FA41E7B79E6005815A9 /* libPods-FiestaApp2017-tvOSTests.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libPods-FiestaApp2017-tvOSTests.a";
+			remoteRef = 3EFC0FA31E7B79E6005815A9 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		3EFC0FA61E7B79E6005815A9 /* libPods-FiestaApp2017Tests.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libPods-FiestaApp2017Tests.a";
+			remoteRef = 3EFC0FA51E7B79E6005815A9 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		5E9157331DD0AC6500FF2AA8 /* libRCTAnimation.a */ = {
