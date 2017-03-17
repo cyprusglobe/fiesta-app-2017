@@ -11,6 +11,15 @@ import {
 } from 'react-native'
 
 class FiestaApp2017 extends Component {
+
+  onComponentDidMount () {
+    this.syncAppVersion();
+  }
+
+  syncAppVersion = () => {
+    codePush.sync({ mandatoryInstallMode: codePush.InstallMode.IMMEDIATE });
+  };
+
   render () {
     return (
       <View style={styles.container}>

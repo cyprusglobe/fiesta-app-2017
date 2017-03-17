@@ -20,7 +20,11 @@
 {
   NSURL *jsCodeLocation;
 
-  jsCodeLocation = [CodePush bundleURL];
+  #ifdef DEBUG
+    jsCodeLocation = [NSURL URLWithString:@"http://localhost:8081/index.ios.bundle?platform=ios&dev=true"];
+  #else
+      jsCodeLocation = [CodePush bundleURL];
+  #endif
 
   RCTRootView *rootView = [[RCTRootView alloc] initWithBundleURL:jsCodeLocation
                                                       moduleName:@"FiestaApp2017"
