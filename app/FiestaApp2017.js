@@ -3,37 +3,47 @@
  */
 
 import React, { Component } from 'react'
+import codePush from 'react-native-code-push'
+
 import {
   AppRegistry,
   StyleSheet,
   Text,
-  View
+  View,
+  TouchableOpacity,
+  Image,
 } from 'react-native'
+
+
+import Icon from 'react-native-vector-icons/Ionicons';
 
 class FiestaApp2017 extends Component {
 
   onComponentDidMount () {
-    this.syncAppVersion();
+    console.log('[onComponentDidMount]: Sync App')
+    this.syncAppVersion()
   }
 
-  syncAppVersion = () => {
-    codePush.sync({ mandatoryInstallMode: codePush.InstallMode.IMMEDIATE });
+  syncAppVersion () {
+    codePush.sync({ mandatoryInstallMode: codePush.InstallMode.IMMEDIATE })
   };
+
+  onButtonPress () {
+    console.log('[onButtonPress]: attempt to update from code-push')
+    codePush.sync({
+      updateDialog: true,
+      installMode: codePush.InstallMode.IMMEDIATE
+    })
+  }
 
   render () {
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.ios.js
-        </Text>
-        <Text style={styles.instructions}>
-          Press Cmd+R to reload,{'\n'}
-          Cmd+D or shake for dev menu
-        </Text>
-        <Text>Testing CodePush</Text>
+        <Image source={require('../images/logo.png')} style={{ flex: 0.1, paddingTop: 20}} resizeMode="contain" />
+        <TouchableOpacity onPress={this.onButtonPress} style={{ flex: 0.9 }}>
+          <Text>Check for updates</Text>
+          <Text style={{color: 'red'}}>Using Code-Push</Text>
+        </TouchableOpacity>
       </View>
     )
   }
@@ -44,7 +54,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#F5FCFF'
+    backgroundColor: '#D42B3A'
   },
   welcome: {
     fontSize: 20,
