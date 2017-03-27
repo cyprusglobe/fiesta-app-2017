@@ -1,53 +1,23 @@
 package com.fiestaapp2017;
 
-import android.app.Application;
-
-import com.facebook.react.ReactApplication;
-import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
-import com.facebook.react.shell.MainReactPackage;
-import com.facebook.soloader.SoLoader;
 import com.microsoft.codepush.react.CodePush;
+import com.reactnativenavigation.NavigationApplication;
 
 import java.util.Arrays;
 import java.util.List;
 
-public class MainApplication extends Application implements ReactApplication {
-
-  private final ReactNativeHost mReactNativeHost = new ReactNativeHost(this) {
-    @Override
-    public boolean getUseDeveloperSupport() {
-      return BuildConfig.DEBUG;
-    }
-
-    /**
-     *  Override the getJSBundleFile method in order to let
-     *  the CodePush runtime determine where to get the JS
-     *  bundle location from on each app start
-     */
-    @Override
-    protected String getJSBundleFile() {
-      return CodePush.getJSBundleFile();
-    }
-
-
-    @Override
-    protected List<ReactPackage> getPackages() {
-      return Arrays.<ReactPackage>asList(
-          new MainReactPackage(),
-          new CodePush("rGBMHmBiNyufw2vac_zSx0g985fS4JhxgyNoG", MainApplication.this, BuildConfig.DEBUG)
-      );
-    }
-  };
-
+public class MainApplication extends NavigationApplication {
   @Override
-  public ReactNativeHost getReactNativeHost() {
-    return mReactNativeHost;
+  public boolean isDebug() {
+    // Make sure you are using BuildConfig from your own application
+    return BuildConfig.DEBUG;
   }
 
   @Override
-  public void onCreate() {
-    super.onCreate();
-    SoLoader.init(this, /* native exopackage */ false);
+  public List<ReactPackage> createAdditionalReactPackages() {
+    return Arrays.<ReactPackage>asList(
+            new CodePush("rGBMHmBiNyufw2vac_zSx0g985fS4JhxgyNoG", MainApplication.this, BuildConfig.DEBUG)
+    );
   }
 }

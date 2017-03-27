@@ -10,28 +10,24 @@ class InstagramPhoto extends PureComponent {
 
   render() {
     let { item } = this.props;
-
     return (
-      <TouchableWithoutFeedback>
-        <View style={styles.imageView}>
-
-        </View>
-      </TouchableWithoutFeedback>
+      <Image
+        key={item.item.description}
+        source={{uri: item.item.imageUrl}}
+        resizeMode="cover"
+        style={styles.instagramImage}
+      />
     );
   }
 }
 
 const styles = StyleSheet.create({
   instagramImage: {
-    width: 64,
-    height: 64,
+    width: 100,
+    height: 100,
+    marginLeft: 5,
+    marginRight: 5
   },
-  imageView: {
-    justifyContent: 'center',
-    width: 125,
-    height: 125,
-    alignItems: 'center',
-  }
 })
 
 export default InstagramPhoto

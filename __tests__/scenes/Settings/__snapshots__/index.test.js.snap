@@ -6,43 +6,18 @@ exports[`Home renders correctly 1`] = `
     Object {
       "alignItems": "center",
       "backgroundColor": "#DFDFDF",
-      "height": "100%",
-      "paddingTop": 25,
-      "width": "100%",
+      "flex": 1,
+      "paddingTop": 64,
     }
   }
 >
-  <View
-    accessibilityComponentType={undefined}
-    accessibilityLabel={undefined}
-    accessibilityTraits={undefined}
+  <Text
     accessible={true}
-    hitSlop={undefined}
-    isTVSelectable={true}
-    onLayout={undefined}
-    onResponderGrant={[Function]}
-    onResponderMove={[Function]}
-    onResponderRelease={[Function]}
-    onResponderTerminate={[Function]}
-    onResponderTerminationRequest={[Function]}
-    onStartShouldSetResponder={[Function]}
-    style={
-      Object {
-        "opacity": 1,
-        "paddingTop": 100,
-      }
-    }
-    testID={undefined}
-    tvParallaxProperties={undefined}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
   >
-    <Text
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
-    >
-      Go To Home Screen
-    </Text>
-  </View>
+    Go To Home Screen
+  </Text>
   <View>
     <View
       collapsible={false}
@@ -59,13 +34,25 @@ exports[`Home renders correctly 1`] = `
     </View>
     <View
       style={
-        Object {
-          "flexDirection": "row",
-          "flexWrap": "wrap",
-          "justifyContent": "space-around",
-        }
+        Array [
+          undefined,
+          Object {
+            "alignItems": "center",
+            "flex": 1,
+            "height": 125,
+            "justifyContent": "center",
+            "marginVertical": 10,
+          },
+        ]
       }
-    />
+    >
+      <ActivityIndicator
+        animating={true}
+        color="#999999"
+        hidesWhenStopped={true}
+        size="small"
+      />
+    </View>
   </View>
 </View>
 `;

@@ -72,7 +72,7 @@ class InstagramPhotos extends PureComponent {
           height: item.images.standard_resolution.height,
           description: item.caption && item.caption.text,
         }));
-        this.setState({images: images.slice(0, 6)});
+        this.setState({images: images});
       }
     }
   }
@@ -94,11 +94,15 @@ class InstagramPhotos extends PureComponent {
     )
   }
 
+  _renderSeparatorComponent() {
+    return <View style={styles.separator} />;
+  }
+
   _renderInstagramPhotos() {
     let { images } = this.state;
 
 
-    if (images) {
+    if (!images) {
       return (
         <View style={[styles.card, styles.imageLoadingContainer]}>
           <ActivityIndicator />
@@ -106,18 +110,34 @@ class InstagramPhotos extends PureComponent {
       );
     }
 
+    const images_sorted = []
+
+    images.map((d) => {
+      if (!d.key) {
+        d.key = Math.random();
+        images_sorted.push(d)
+      }
+    })
+
     return (
-      <View style={styles.list}>
-      </View>
+      <FlatList
+        data={images_sorted}
+        initialNumToRender={2}
+        numColumns={2}
+        getItemLayout={(data, index) => (
+          {length: 120, offset: 120 * index, index}
+        )}
+        columnWrapperStyle={{ margin: 5}}
+        style={styles.list}
+        renderItem={(image) => <InstagramPhoto key={image.description} item={image} list={images} /> }
+        />
     );
   }
 }
 
 const styles = StyleSheet.create({
   list: {
-    justifyContent: 'space-around',
-    flexDirection: 'row',
-    flexWrap: 'wrap'
+    flex: 1
   },
   imageLoadingContainer: {
     alignItems: 'center',
@@ -125,7 +145,11 @@ const styles = StyleSheet.create({
     flex: 1,
     height: 125,
     marginVertical: 10,
-  }
+  },
+  separator: {
+    height: 10,
+    backgroundColor: 'gray',
+  },
 })
 
 export default InstagramPhotos

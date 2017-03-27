@@ -22,17 +22,17 @@ class Settings extends Component {
 
   goTo = () => {
     this.props.navigator.push({
-      screen: 'example.Home', // unique ID registered with Navigation.registerScreen,
+      screen: 'example.Home', // unique ID registered with Navigation.registerScreen
+      title: 'Home'
     });
   }
 
   render() {
     return (
       <View style={styles.container}>
-        <TouchableOpacity style={{paddingTop: 100}} onPress={() => this.goTo()}>
           <Text>Go To Home Screen</Text>
-        </TouchableOpacity>
-        <InstagramPhotos profile={'balloonfiesta'} />
+
+        <InstagramPhotos profile={'balloonfiesta'}/>
       </View>
     )
   }
@@ -40,13 +40,13 @@ class Settings extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    // flex: 1,
-    width: '100%',
-    height: '100%',
+    flex: 1,
+    // width: '100%',
+    // height: '100%',
     // justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#DFDFDF',
-    paddingTop: 25
+    paddingTop: 64
   }
 })
 

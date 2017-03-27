@@ -10,11 +10,21 @@ import {
 import { DrawerNavigator } from 'react-navigation'
 import { app } from './app'
 import { Home, Settings } from './app/scenes'
+import syncEnchancer from './app/utils/syncEnhancer'
+import { Navigation } from 'react-native-navigation';
 
-const Stack = DrawerNavigator({
-  Home: { screen: Home },
-  Settings: { screen: Settings },
-});
+function registerScreens() {
+  Navigation.registerComponent('example.Home', () => Home)
+  Navigation.registerComponent('example.Settings', () => Settings)
+}
 
-
-AppRegistry.registerComponent('FiestaApp2017', () => Stack)
+registerScreens()
+// start the app
+syncEnchancer(Navigation.startSingleScreenApp({
+  screen: {
+    screen: 'example.Home', // unique ID registered with Navigation.registerScreen
+    // title: 'Home', // title of the screen as appears in the nav bar (optional)
+    navigatorStyle: {}, // override the navigator style for the screen, see "Styling the navigator" below (optional)
+    navigatorButtons: {} // override the nav buttons for the screen, see "Adding buttons to the navigator" below (optional)
+  },
+}));
