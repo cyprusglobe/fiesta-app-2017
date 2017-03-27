@@ -9,10 +9,6 @@
 
 #import "AppDelegate.h"
 
-// #import <RNCrashes/RNCrashes.h>
-// #import <RNAnalytics/RNAnalytics.h>
-
-
 #import <React/RCTBundleURLProvider.h>
 #import <React/RCTRootView.h>
 
@@ -29,13 +25,8 @@
 
   NSURL *jsCodeLocation;
 
-  // [RNCrashes registerWithCrashDelegate: [[RNCrashesDelegateAlwaysSend alloc] init]];  // Initialize Mobile Center crashes
-
-  // [RNAnalytics registerWithInitiallyEnabled:true];  // Initialize Mobile Center analytics
-
-//  jsCodeLocation = [NSURL URLWithString:@"http://localhost:8081/index.ios.bundle?platform=ios&dev=true"];
-  jsCodeLocation = [CodePush bundleURL];
-
+  jsCodeLocation = [NSURL URLWithString:@"http://localhost:8081/index.ios.bundle?platform=ios&dev=true"];
+  // jsCodeLocation = [CodePush bundleURL];
   RCTRootView *rootView = [[RCTRootView alloc] initWithBundleURL:jsCodeLocation
                                                       moduleName:@"FiestaApp2017"
                                                initialProperties:nil
