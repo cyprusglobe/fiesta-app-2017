@@ -3,8 +3,6 @@
  */
 
 import React, { Component } from 'react'
-import codePush from 'react-native-code-push'
-
 import {
   AppRegistry,
   StyleSheet,
@@ -13,59 +11,27 @@ import {
   TouchableOpacity,
   Image,
 } from 'react-native'
+import codePush from 'react-native-code-push'
+import Icon from 'react-native-vector-icons/Ionicons'
+import { StackNavigator } from 'react-navigation'
 
+import syncEnchancer from './utils/syncEnhancer'
+import { Home, Settings } from './scenes'
 
-import Icon from 'react-native-vector-icons/Ionicons';
+import { Navigation } from 'react-native-navigation';
 
-class FiestaApp2017 extends Component {
-
-  onComponentDidMount () {
-    console.log('[onComponentDidMount]: Sync App')
-    this.syncAppVersion()
-  }
-
-  syncAppVersion () {
-    codePush.sync({ mandatoryInstallMode: codePush.InstallMode.IMMEDIATE })
-  };
-
-  onButtonPress () {
-    console.log('[onButtonPress]: attempt to update from code-push')
-    codePush.sync({
-      updateDialog: true,
-      installMode: codePush.InstallMode.IMMEDIATE
-    })
-  }
-
-  render () {
-    return (
-      <View style={styles.container}>
-        <Image source={require('../images/logo.png')} style={{ flex: 0.1, paddingTop: 20}} resizeMode="contain" />
-        <TouchableOpacity onPress={this.onButtonPress} style={{ flex: 0.9 }}>
-          <Text>Check for updates</Text>
-          <Text style={{color: 'red'}}>Using Code-Push</Text>
-        </TouchableOpacity>
-      </View>
-    )
-  }
+function registerScreens() {
+  Navigation.registerComponent('example.Home', () => Home)
+  Navigation.registerComponent('example.Settings', () => Settings)
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#D42B3A'
+registerScreens()
+// start the app
+syncEnchancer(Navigation.startSingleScreenApp({
+  screen: {
+    screen: 'example.Home', // unique ID registered with Navigation.registerScreen
+    // title: 'Home', // title of the screen as appears in the nav bar (optional)
+    navigatorStyle: {}, // override the navigator style for the screen, see "Styling the navigator" below (optional)
+    navigatorButtons: {} // override the nav buttons for the screen, see "Adding buttons to the navigator" below (optional)
   },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5
-  }
-})
-
-export default FiestaApp2017
+}));
