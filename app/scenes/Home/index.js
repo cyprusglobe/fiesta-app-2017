@@ -18,19 +18,24 @@ class Home extends Component {
     ...navigatorStyles
   };
 
-  goTo = () => {
+  goTo = (scene, sceneTitle) => {
     this.props.navigator.push({
-      screen: 'example.Settings', // unique ID registered with Navigation.registerScreen
-      title: 'Settings'
+      screen: scene ? scene : 'example.Home', // unique ID registered with Navigation.registerScreen
+      title: sceneTitle
     });
   }
 
   render() {
+
+
     return (
       <View style={styles.container}>
         <Image source={require('../../../images/logo.png')} resizeMode="contain" />
-        <TouchableOpacity onPress={() => this.goTo()}>
+        <TouchableOpacity onPress={() => this.goTo('example.Settings', 'Settings')}>
           <Text>Go To Settings Screen</Text>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => this.goTo('example.Search', 'Search')}>
+          <Text>Go To Search Screen</Text>
         </TouchableOpacity>
       </View>
     )

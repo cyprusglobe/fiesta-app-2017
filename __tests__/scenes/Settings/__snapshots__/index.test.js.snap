@@ -6,32 +6,26 @@ exports[`Home renders correctly 1`] = `
     Object {
       "alignItems": "center",
       "backgroundColor": "#DFDFDF",
-      "flex": 1,
+      "height": "100%",
       "paddingTop": 64,
+      "width": "100%",
     }
   }
 >
-  <Text
-    accessible={true}
-    allowFontScaling={true}
-    ellipsizeMode="tail"
+  <View
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+  />
+  <View
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
   >
-    Go To Home Screen
-  </Text>
-  <View>
-    <View
-      collapsible={false}
-      style={undefined}
-    >
-      <Text
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={undefined}
-      >
-        Photos from Instagram
-      </Text>
-    </View>
     <View
       style={
         Array [

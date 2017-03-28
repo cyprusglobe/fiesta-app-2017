@@ -12,26 +12,26 @@ import {
 } from 'react-native'
 import navigatorStyles from './config'
 
-import { InstagramPhotos } from '../../components/'
-
-class Settings extends Component {
+class Search extends Component {
 
   static navigatorStyle = {
     ...navigatorStyles
   };
 
-  goTo = () => {
+  goTo = (scene) => {
     this.props.navigator.push({
-      screen: 'example.Home', // unique ID registered with Navigation.registerScreen
+      screen: scene ? scene : 'example.Home', // unique ID registered with Navigation.registerScreen
       title: 'Home'
     });
   }
 
   render() {
+
+    const { scene } = this.props;
+
     return (
       <View style={styles.container}>
-        <View style={{flex: 1}} />
-        <InstagramPhotos  style={{flex: 1}} profile={'balloonfiesta'}/>
+
       </View>
     )
   }
@@ -45,8 +45,8 @@ const styles = StyleSheet.create({
     // justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#DFDFDF',
-    paddingTop: 64
+    paddingTop: 25
   }
 })
 
-export default Settings
+export default Search

@@ -9,13 +9,15 @@ import {
 } from 'react-native'
 import { DrawerNavigator } from 'react-navigation'
 import { app } from './app'
-import { Home, Settings } from './app/scenes'
+import { Home, Settings, Search } from './app/scenes'
 import syncEnchancer from './app/utils/syncEnhancer'
 import { Navigation } from 'react-native-navigation';
 
 function registerScreens() {
+  Navigation.registerComponent('example.Search', () => Search)
   Navigation.registerComponent('example.Home', () => Home)
   Navigation.registerComponent('example.Settings', () => Settings)
+
 }
 
 registerScreens()

@@ -12,9 +12,7 @@ import {
 } from 'react-native'
 import navigatorStyles from './config'
 
-import { InstagramPhotos } from '../../components/'
-
-class Settings extends Component {
+class Landing extends Component {
 
   static navigatorStyle = {
     ...navigatorStyles
@@ -22,16 +20,18 @@ class Settings extends Component {
 
   goTo = () => {
     this.props.navigator.push({
-      screen: 'example.Home', // unique ID registered with Navigation.registerScreen
-      title: 'Home'
+      screen: 'example.Settings', // unique ID registered with Navigation.registerScreen
+      title: 'Settings'
     });
   }
 
   render() {
     return (
       <View style={styles.container}>
-        <View style={{flex: 1}} />
-        <InstagramPhotos  style={{flex: 1}} profile={'balloonfiesta'}/>
+        <Image source={require('../../../images/logo.png')} resizeMode="contain" />
+        <TouchableOpacity onPress={() => this.goTo()}>
+          <Text>Go To Settings Screen</Text>
+        </TouchableOpacity>
       </View>
     )
   }
@@ -45,8 +45,8 @@ const styles = StyleSheet.create({
     // justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#DFDFDF',
-    paddingTop: 64
+    paddingTop: 25
   }
 })
 
-export default Settings
+export default Landing

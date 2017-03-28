@@ -83,12 +83,7 @@ class InstagramPhotos extends PureComponent {
 
   render() {
     return (
-      <View>
-        <View style={styles.cardLabel} collapsible={false}>
-          <Text style={styles.cardLabelText}>
-            Photos from Instagram
-          </Text>
-        </View>
+      <View style={{flex: 1}}>
         {this._renderInstagramPhotos()}
       </View>
     )
@@ -100,7 +95,7 @@ class InstagramPhotos extends PureComponent {
 
   _renderInstagramPhotos() {
     let { images } = this.state;
-
+    let { style } = this.props;
 
     if (!images) {
       return (
@@ -123,12 +118,10 @@ class InstagramPhotos extends PureComponent {
       <FlatList
         data={images_sorted}
         initialNumToRender={2}
-        numColumns={2}
-        getItemLayout={(data, index) => (
-          {length: 120, offset: 120 * index, index}
-        )}
+        numColumns={4}
         columnWrapperStyle={{ margin: 5}}
-        style={styles.list}
+        style={[...style]}
+        legacyImplementation={false}
         renderItem={(image) => <InstagramPhoto key={image.description} item={image} list={images} /> }
         />
     );
@@ -136,9 +129,6 @@ class InstagramPhotos extends PureComponent {
 }
 
 const styles = StyleSheet.create({
-  list: {
-    flex: 1
-  },
   imageLoadingContainer: {
     alignItems: 'center',
     justifyContent: 'center',
