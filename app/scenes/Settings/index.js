@@ -23,7 +23,7 @@ class Settings extends Component {
   goTo = () => {
     this.props.navigator.push({
       screen: 'example.Home', // unique ID registered with Navigation.registerScreen
-      title: 'Home'
+      title: 'Home',
     });
   }
 

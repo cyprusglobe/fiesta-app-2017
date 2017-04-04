@@ -5,8 +5,9 @@
 import { Platform, Dimensions } from 'react-native'
 
 
-const color = {
-
+const app = {
+  banner: "#D42B3A",
+  navbarBG: '#D42B3A'
 }
 
 const fontSize = {
@@ -22,4 +23,8 @@ const statusBarHeight = Platform.OS === 'ios' ? 20 : 24;
 export default {
   fontSize,
   statusBarHeight
+}
+
+export const theme = {
+  app
 }

@@ -12,6 +12,8 @@ import {
 } from 'react-native'
 import navigatorStyles from './config'
 
+import styles from './styles'
+
 class Home extends Component {
 
   static navigatorStyle = {
@@ -30,28 +32,18 @@ class Home extends Component {
 
     return (
       <View style={styles.container}>
-        <Image source={require('../../../images/logo.png')} resizeMode="contain" />
         <TouchableOpacity onPress={() => this.goTo('example.Settings', 'Settings')}>
           <Text>Go To Settings Screen</Text>
         </TouchableOpacity>
         <TouchableOpacity onPress={() => this.goTo('example.Search', 'Search')}>
           <Text>Go To Search Screen</Text>
         </TouchableOpacity>
+        <TouchableOpacity onPress={() => this.goTo('example.Welcome', 'Welcome')}>
+          <Text>Go To Welcome Screen</Text>
+        </TouchableOpacity>
       </View>
     )
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    // flex: 1,
-    width: '100%',
-    height: '100%',
-    // justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#DFDFDF',
-    paddingTop: 25
-  }
-})
 
 export default Home

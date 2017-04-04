@@ -3,9 +3,11 @@
  */
 
 const navigatorStlyes = {
-  drawUnderNavBar: true,
-  navBarTransparent: true,
-  navBarTranslucent: true,
+  drawUnderNavBar: false,
+  // collapsingToolBarCollapsedColor: 'red',
+  // navBarTransparent: true,
+  // navBarTranslucent: false,
+  // navBarBackgroundColor: 'red'
 }
 
 export default navigatorStlyes
