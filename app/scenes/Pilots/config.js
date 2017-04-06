@@ -7,6 +7,6 @@ const navigatorStyles = {
   // navBarHidden: true,
   // navBarTransparent: true,
   // navBarTranslucent: true,
-}
+};
 
-export default navigatorStyles
+export default navigatorStyles;

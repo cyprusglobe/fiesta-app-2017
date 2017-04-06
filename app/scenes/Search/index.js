@@ -2,38 +2,26 @@
  * @flow
  */
 
-import React, { Component } from 'react'
-import {
-  View,
-  Text,
-  StyleSheet,
-  TouchableOpacity,
-  Image,
-} from 'react-native'
-import navigatorStyles from './config'
+import React, { Component } from 'react';
+import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
+import navigatorStyles from './config';
 
 class Search extends Component {
-
   static navigatorStyle = {
-    ...navigatorStyles
+    ...navigatorStyles,
   };
 
-  goTo = (scene) => {
+  goTo = scene => {
     this.props.navigator.push({
       screen: scene ? scene : 'example.Home', // unique ID registered with Navigation.registerScreen
-      title: 'Home'
+      title: 'Home',
     });
-  }
+  };
 
   render() {
-
     const { scene } = this.props;
 
-    return (
-      <View style={styles.container}>
-
-      </View>
-    )
+    return <View style={styles.container} />;
   }
 }
 
@@ -45,8 +33,8 @@ const styles = StyleSheet.create({
     // justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#DFDFDF',
-    paddingTop: 25
-  }
-})
+    paddingTop: 25,
+  },
+});
 
-export default Search
+export default Search;

@@ -2,21 +2,21 @@
  * @flow
  */
 
-import { StyleSheet } from 'react-native'
+import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
   menuProfileStatActive: {
     color: '#263238',
-    backgroundColor: 'red'
+    backgroundColor: 'red',
   },
   menuProfileStatInactive: {
     color: 'red',
-    backgroundColor: 'transparent'
+    backgroundColor: 'transparent',
   },
   menuContainer: {
     flex: 1,
     flexDirection: 'row',
     justifyContent: 'center',
-    alignItems: 'center'
-  }
-})
+    alignItems: 'center',
+  },
+});

@@ -2,19 +2,15 @@
  * @flow
  */
 
-import React, { Component } from 'react'
-import {
-    View,
-    Text,
-} from 'react-native'
+import React, { Component } from 'react';
+import { View, Text } from 'react-native';
 
-import { MenuItem } from '../'
+import { MenuItem } from '../';
 
-import styles from './styles'
+import styles from './styles';
 
 export default class ProfileItem extends Component {
   render() {
-
     let authorOnlyStyles, authorAllStyles;
 
     if (this.props.showAuthorPackagesOnly) {
@@ -27,9 +23,7 @@ export default class ProfileItem extends Component {
 
     return (
       <MenuItem action={this.props.action}>
-        <View style={styles.menuContainer}>
-
-        </View>
+        <View style={styles.menuContainer} />
       </MenuItem>
     );
   }

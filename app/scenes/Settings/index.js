@@ -2,22 +2,15 @@
  * @flow
  */
 
-import React, { Component } from 'react'
-import {
-  View,
-  Text,
-  StyleSheet,
-  TouchableOpacity,
-  Image,
-} from 'react-native'
-import navigatorStyles from './config'
+import React, { Component } from 'react';
+import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
+import navigatorStyles from './config';
 
-import { InstagramPhotos } from '../../components/'
+import { InstagramPhotos } from '../../components/';
 
 class Settings extends Component {
-
   static navigatorStyle = {
-    ...navigatorStyles
+    ...navigatorStyles,
   };
 
   goTo = () => {
@@ -25,15 +18,15 @@ class Settings extends Component {
       screen: 'example.Home', // unique ID registered with Navigation.registerScreen
       title: 'Home',
     });
-  }
+  };
 
   render() {
     return (
       <View style={styles.container}>
-        <View style={{flex: 1}} />
-        <InstagramPhotos  style={{flex: 1}} profile={'balloonfiesta'}/>
+        <View style={{ flex: 1 }} />
+        <InstagramPhotos style={{ flex: 1 }} profile={'balloonfiesta'} />
       </View>
-    )
+    );
   }
 }
 
@@ -45,8 +38,8 @@ const styles = StyleSheet.create({
     // justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#DFDFDF',
-    paddingTop: 64
-  }
-})
+    paddingTop: 64,
+  },
+});
 
-export default Settings
+export default Settings;

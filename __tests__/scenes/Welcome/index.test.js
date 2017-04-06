@@ -9,11 +9,9 @@ import renderer from 'react-test-renderer';
 import { Welcome } from '../../../app/scenes';
 
 describe('Welcome', () => {
-	it('renders correctly', () => {
-		const tree = renderer.create(
-			<Welcome />
-		).toJSON();
+  it('renders correctly', () => {
+    const tree = renderer.create(<Welcome />).toJSON();
 
-		expect(tree).toMatchSnapshot();
-	});
+    expect(tree).toMatchSnapshot();
+  });
 });

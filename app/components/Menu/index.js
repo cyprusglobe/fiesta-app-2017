@@ -2,95 +2,82 @@
  * @flow
  */
 
-import React, { Component } from "react";
-import { Image, ListView, Text, TouchableOpacity, View, StyleSheet, Dimensions, Platform } from "react-native";
+import React, { Component } from 'react';
+import {
+  Image,
+  FlatList,
+  ListView,
+  Text,
+  TouchableOpacity,
+  View,
+  StyleSheet,
+  Dimensions,
+  Platform,
+} from 'react-native';
 
 // import Userpic from '../components/Userpic';
 // import MenuButton from '../components/MenuButton';
 
-import { MenuButton, MenuItem, CountDown, Weather } from "../";
+import { MenuButton, MenuItem, CountDown, Weather } from '../';
 
 // import Alert from '../lib/Alert';
-import styles from "./styles";
+import styles from './styles';
 
 export default class Menu extends Component {
+  state = {
+    editProfilesInProgress: false,
+    items: [
+      { key: 1, name: 'Home', title: 'Home' },
+      { key: 2, name: 'Welcome', title: 'Welcome' },
+      { key: 3, name: 'Settings', title: 'Settings' },
+    ],
+  };
 
   constructor(props) {
     super(props);
-
-    this.state = {
-      editProfilesInProgress: false
-    };
-
-    this.profiles = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
   }
 
-  // componentWillReceiveProps(nextProps) {
-  //   if (!nextProps.isOpen) {
-  //     this.setState({editProfilesInProgress: false});
-  //   }
-  // }
+  toggleDrawer = (to, side, animated) => {
+    this.props.navigator.toggleDrawer({
+      to,
+      side,
+      animated,
+    });
+  };
+  goTo = (scene, sceneTitle) => {
+    this.toggleDrawer('closed', 'left', true);
+    this.props.navigator.push({
+      screen: `example.${scene}`,
+      title: sceneTitle ? sceneTitle : 'Title',
+    });
+  };
 
-  // addProfile() {
-  //   Alert.prompt(
-  //     'add new profile',
-  //     null,
-  //     [
-  //       {
-  //         text: 'cancel',
-  //         onPress: () => {}
-  //       },
-  //       {
-  //         text: 'ok',
-  //         onPress: (handle) => { handle && this.props.onAddProfile({handle: handle.toLowerCase()}) }
-  //       }
-  //     ]
-  //   );
-  // }
+  renderRow = item => {
+    return item
+      ? <MenuItem
+          key={item.key}
+          action={() => this.goTo(item.name, item.title)}
+        >
+          <View style={[styles.menuContainer, styles.menuContainerBorder]}>
+            <Text
+              style={[
+                styles.menuItem,
+                styles.menuItemText,
+                styles.menuItemIconless,
+              ]}
+            >
+              {item.name}
+            </Text>
+          </View>
+        </MenuItem>
+      : null;
+  };
 
-  // removeProfile(profile) {
-  //   Alert.alert(
-  //     'remove profile',
-  //     'press [ok] to remove [' + profile.handle + '] profile',
-  //     [
-  //       {text: 'cancel'},
-  //       {
-  //         text: 'ok',
-  //         onPress: this.props.onRemoveProfile.bind(this, profile)
-  //       },
-  //     ]
-  //   );
-  // }
-
-  // onEditProfiles() {
-  //   this.setState({editProfilesInProgress: true});
-  // }
-
-  // onDoneEditProfiles() {
-  //   this.setState({editProfilesInProgress: false});
-  // }
-
-  renderRow(item, sectionId, rowId) {
-    return item ? (
-      <MenuItem>
-        <View style={[styles.menuContainer,{ borderTopWidth: 5, borderTopColor: 'white' }]}>
-          <Text style={[styles.menuItem, styles.menuItemText, styles.menuItemIconless]}>
-            {item.name}
-          </Text>
-        </View>
-      </MenuItem>
-    ) : null;
-  }
-
-  renderSeparator(sectionId, keyId) {
-    return (
-      <View key={keyId} style={styles.menuListSeparator} />
-    );
-  }
+  renderSeparator = (sectionId, keyId) => {
+    return <View key={keyId} style={[styles.menuListSeparator]} />;
+  };
 
   render() {
-
-    const profiles = [{name: 'Home'}, {name: 'Tour'}]
     // // clean up props
     // const {$, ...profiles} = this.props.profiles;
     // const menuPadding = this.props.isOpen && !this.props.isLandscape
@@ -111,14 +98,25 @@ export default class Menu extends Component {
 
     return (
       <View
-        style={[styles.menu, { width: Dimensions.get("screen").width / 2 + 100 }]}>
-          <View style={[styles.menuMeta]}>
-            <View style={[styles.menuContainer, styles.menuContainerSpread]}>
-              <Image source={{ uri: 'http://balloonfiesta.com/assets/images/logo.png' }} style={{ width: '100%', height: '100%' }} resizeMode="contain" resizeMethod="resize" />
-            </View>
+        style={[
+          styles.menu,
+          { width: Dimensions.get('screen').width / 2 + 100 },
+        ]}
+      >
+        <View style={[styles.menuMeta]}>
+          <View style={[styles.menuContainer, styles.menuContainerSpread]}>
+            <Image
+              source={{
+                uri: 'http://balloonfiesta.com/assets/images/logo.png',
+              }}
+              style={{ width: '100%', height: '100%' }}
+              resizeMode="contain"
+              resizeMethod="resize"
+            />
           </View>
+        </View>
 
-          {/*<View style={ styles.menuMeta }>
+        {/*<View style={ styles.menuMeta }>
             <View style={[styles.menuContainer, styles.menuContainerSpread]}>
               <View />
               <MenuButton
@@ -129,21 +127,23 @@ export default class Menu extends Component {
             </View>
           </View>*/}
 
-          <ListView
+        {/*<ListView
             style={styles.menuList}
             ref="menuView"
-            dataSource={this.profiles.cloneWithRows(profiles)}
+            dataSource={this.items.cloneWithRows(profiles)}
             renderRow={this.renderRow.bind(this)}
             renderSeparator={this.renderSeparator.bind(this)}
             enableEmptySections={true}
-          />
+          />*/}
 
+        <FlatList
+          data={this.state.items}
+          renderItem={({ item }) => this.renderRow(item)}
+          ItemSeparatorComponent={() => this.renderSeparator()}
+        />
+        {/*<View style={{ backgroundColor: 'white', flexGrow: 1 }} />*/}
 
-
-
-          {/*<View style={{ backgroundColor: 'white', flexGrow: 1 }} />*/}
-
-          {/*<View style={styles.menuMeta}>
+        {/*<View style={styles.menuMeta}>
             <View style={[styles.menuContainer, styles.menuContainerSpread]}>
               <MenuButton
                 style={[styles.menuButton, styles.menuButtonRight]}
@@ -153,16 +153,29 @@ export default class Menu extends Component {
             </View>
           </View>*/}
 
-          <Weather />
+        <Weather />
 
-          <View style={styles.menuMeta}>
-            <View style={[styles.menuContainer, styles.menuContainerSpread, {justifyContent: 'center'}]}>
-              <Image source={{uri: 'http://balloonfiesta.com/assets/images/when.png'}} style={{width: '50%', height: '100%'}} resizeMode="contain" resizeMethod="scale"/>
-            </View>
+        <View style={styles.menuMeta}>
+          <View
+            style={[
+              styles.menuContainer,
+              styles.menuContainerSpread,
+              { justifyContent: 'center' },
+            ]}
+          >
+            <Image
+              source={{
+                uri: 'http://balloonfiesta.com/assets/images/when.png',
+              }}
+              style={{ width: '50%', height: '100%' }}
+              resizeMode="contain"
+              resizeMethod="scale"
+            />
           </View>
-          <CountDown />
+        </View>
+
+        <CountDown />
       </View>
     );
   }
 }
-

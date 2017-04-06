@@ -2,38 +2,34 @@
  * @flow
  */
 
-import React, { Component } from 'react'
-import {
-  View,
-  Text,
-  StyleSheet,
-  TouchableOpacity,
-  Image,
-} from 'react-native'
-import navigatorStyles from './config'
+import React, { Component } from 'react';
+import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
+import navigatorStyles from './config';
 
 class Landing extends Component {
-
   static navigatorStyle = {
-    ...navigatorStyles
+    ...navigatorStyles,
   };
 
   goTo = () => {
     this.props.navigator.push({
       screen: 'example.Settings', // unique ID registered with Navigation.registerScreen
-      title: 'Settings'
+      title: 'Settings',
     });
-  }
+  };
 
   render() {
     return (
       <View style={styles.container}>
-        <Image source={require('../../../images/logo.png')} resizeMode="contain" />
+        <Image
+          source={require('../../../images/logo.png')}
+          resizeMode="contain"
+        />
         <TouchableOpacity onPress={() => this.goTo()}>
           <Text>Go To Settings Screen</Text>
         </TouchableOpacity>
       </View>
-    )
+    );
   }
 }
 
@@ -45,8 +41,8 @@ const styles = StyleSheet.create({
     // justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#DFDFDF',
-    paddingTop: 25
-  }
-})
+    paddingTop: 25,
+  },
+});
 
-export default Landing
+export default Landing;

@@ -8,6 +8,6 @@ const navigatorStlyes = {
   // navBarTransparent: true,
   // navBarTranslucent: false,
   // navBarBackgroundColor: 'red'
-}
+};
 
-export default navigatorStlyes
+export default navigatorStlyes;

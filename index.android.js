@@ -9,22 +9,42 @@ import {
 } from 'react-native'
 import { DrawerNavigator } from 'react-navigation'
 import { app } from './app'
-import { Welcome, Home, Settings, Search, Menu } from './app/scenes'
+import { Welcome, Home, Settings, Search, Menu, Balloons } from './app/scenes'
 import syncEnchancer from './app/utils/syncEnhancer'
 import { Navigation } from 'react-native-navigation';
 
 function registerScreens() {
-
-  Navigation.registerComponent('example.Welcome', () => Welcome)
-  Navigation.registerComponent('example.Search', () => Search)
-  Navigation.registerComponent('example.Home', () => Home)
-  Navigation.registerComponent('example.Settings', () => Settings)
   Navigation.registerComponent('example.Menu', () => Menu)
+    Navigation.registerComponent('example.Balloons', () => Balloons)
+  Navigation.registerComponent('example.Welcome', () => Welcome)
+  Navigation.registerComponent('example.Home', () => Home)
 
+  Navigation.registerComponent('example.Search', () => Search)
+  Navigation.registerComponent('example.Settings', () => Settings)
 }
 
-registerScreens()
+registerScreens();
+
 // start the app
+// Navigation.startSingleScreenApp({
+//   screen: {
+//     screen: 'example.Home', // unique ID registered with Navigation.registerScreen
+//     title: 'Home', // title of the screen as appears in the nav bar (optional)
+//     leftButtons: [
+// 			{
+// 				id: 'sideMenu'
+// 			}
+// 		],
+//     navigatorStyle: {}, // override the navigator style for the screen, see "Styling the navigator" below (optional)
+//     navigatorButtons: {} // override the nav buttons for the screen, see "Adding buttons to the navigator" below (optional)
+//   },
+//   drawer: {
+//     left: {
+//       screen: 'example.Menu',
+//     }
+//   }
+// });
+
 syncEnchancer(Navigation.startSingleScreenApp({
   screen: {
     screen: 'example.Home', // unique ID registered with Navigation.registerScreen
@@ -43,3 +63,20 @@ syncEnchancer(Navigation.startSingleScreenApp({
     }
   }
 }));
+
+// syncEnchancer(Navigation.startTabBasedApp({
+//   tabs: [
+//     {
+//       label: 'Home',
+//       screen: 'example.Home', // this is a registered name for a screen
+//       icon: require('./images/one.png'),
+//       // selectedIcon: require('../img/one_selected.png'), // iOS only
+//       title: 'Home'
+//     }
+//   ],
+//   drawer: {
+//     left: {
+//       screen: 'example.Menu',
+//     }
+//   }
+// }));

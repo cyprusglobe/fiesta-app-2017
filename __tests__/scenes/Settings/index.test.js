@@ -9,11 +9,9 @@ import renderer from 'react-test-renderer';
 import { Settings } from '../../../app/scenes';
 
 describe('Home', () => {
-	it('renders correctly', () => {
-		const tree = renderer.create(
-			<Settings />
-		).toJSON();
+  it('renders correctly', () => {
+    const tree = renderer.create(<Settings />).toJSON();
 
-		expect(tree).toMatchSnapshot();
-	});
+    expect(tree).toMatchSnapshot();
+  });
 });

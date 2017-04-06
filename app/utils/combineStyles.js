@@ -1,13 +1,11 @@
 function combineStyles(conditions, styles) {
+  var results = [];
 
-    var results = [];
+  Object.keys(conditions).map(function(key) {
+    if (conditions[key]) results.push(styles[key]);
+  });
 
-    Object.keys(conditions).map(function(key) {
-      if (conditions[key])
-        results.push(styles[key]);
-    });
+  return results;
+}
 
-    return results;
-  };
-
-export default combineStyles
+export default combineStyles;

@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native'
+import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
   welcome: {
@@ -14,10 +14,10 @@ export default StyleSheet.create({
     height: 20,
     fontSize: 14,
     color: '#7f8c8d',
-    textAlign: 'center'
+    textAlign: 'center',
   },
   welcomeImage: {
     width: 200,
-    height: 200
-  }
-})
+    height: 200,
+  },
+});

@@ -2,15 +2,13 @@
  * @flow
  */
 
-import React, { Component } from 'react'
-import {
-    TouchableOpacity,
-} from 'react-native'
+import React, { Component } from 'react';
+import { TouchableOpacity } from 'react-native';
 
-import styles from './styles'
+import styles from './styles';
 
 class MenuItem extends Component {
-  render () {
+  render() {
     return (
       <TouchableOpacity style={styles.item} onPress={this.props.action}>
         {this.props.children}
@@ -19,4 +17,4 @@ class MenuItem extends Component {
   }
 }
 
-export default MenuItem
+export default MenuItem;
