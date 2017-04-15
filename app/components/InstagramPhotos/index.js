@@ -9,48 +9,6 @@ import {
 } from 'react-native';
 import InstagramPhoto from '../InstagramPhoto';
 
-const shows_second = [
-  {
-    key: 7,
-    name: 'Colony',
-    image: 'https://static.tvmaze.com/uploads/images/medium_portrait/91/229234.jpg',
-  },
-  {
-    key: 8,
-    name: 'The Walking Dead',
-    image: 'https://static.tvmaze.com/uploads/images/medium_portrait/67/168817.jpg',
-  },
-  {
-    key: 9,
-    name: 'Taken',
-    image: 'https://static.tvmaze.com/uploads/images/medium_portrait/100/250528.jpg',
-  },
-  {
-    key: 10,
-    name: 'This is us',
-    image: 'https://static.tvmaze.com/uploads/images/medium_portrait/70/175831.jpg',
-  },
-  {
-    key: 11,
-    name: 'Superstore',
-    image: 'https://static.tvmaze.com/uploads/images/medium_portrait/69/174909.jpg',
-  },
-  {
-    key: 12,
-    name: 'Lethal Weapon',
-    image: 'https://static.tvmaze.com/uploads/images/medium_portrait/93/234808.jpg',
-  },
-  {
-    key: 13,
-    name: 'The 100',
-    image: 'https://static.tvmaze.com/uploads/images/medium_portrait/94/236401.jpg',
-  },
-  {
-    key: 14,
-    name: 'Homeland',
-    image: 'https://static.tvmaze.com/uploads/images/medium_portrait/101/254425.jpg',
-  },
-];
 
 class InstagramPhotos extends PureComponent {
   state = {
@@ -58,6 +16,7 @@ class InstagramPhotos extends PureComponent {
   };
 
   async componentDidMount() {
+    console.log(this.props);
     this._isMounted = true;
     let { profile } = this.props;
 
@@ -122,7 +81,12 @@ class InstagramPhotos extends PureComponent {
         style={[...style]}
         legacyImplementation={false}
         renderItem={image => (
-          <InstagramPhoto key={image.description} item={image} list={images} />
+          <InstagramPhoto
+            key={image.description}
+            item={image}
+            list={images}
+            navigator={this.props.navigator}
+          />
         )}
       />
     );

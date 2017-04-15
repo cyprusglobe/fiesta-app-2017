@@ -13,7 +13,7 @@ class Home extends Component {
     ...navigatorStyles,
   };
 
-  goTo = (scene, sceneTitle) => {
+  goTo = (scene: string, sceneTitle: string) => {
     this.props.navigator.push({
       screen: scene ? scene : 'example.Home', // unique ID registered with Navigation.registerScreen
       title: sceneTitle,
@@ -29,9 +29,12 @@ class Home extends Component {
           <Text>Go To Welcome Screen</Text>
         </TouchableOpacity>
         <TouchableOpacity
-          onPress={() => this.goTo('example.Settings', 'Settings')}
+          onPress={() => this.goTo('example.Instagram', 'Instagram')}
         >
-          <Text>Go To Settings Screen</Text>
+          <Text>Go To Instagram Screen</Text>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => this.goTo('example.Pilots', 'Pilots')}>
+          <Text>Go To Pilots Screen</Text>
         </TouchableOpacity>
         <TouchableOpacity
           onPress={() => this.goTo('example.Balloons', 'Balloons')}

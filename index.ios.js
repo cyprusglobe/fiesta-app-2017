@@ -7,17 +7,18 @@
 import {
   AppRegistry
 } from 'react-native'
-import { DrawerNavigator } from 'react-navigation'
 import { app } from './app'
-import { Welcome, Home, Settings, Search } from './app/scenes'
+import { Welcome, Home, Balloons, Balloon, Pilots, Pilot } from './app/scenes'
 import syncEnchancer from './app/utils/syncEnhancer'
 import { Navigation } from 'react-native-navigation';
 
 function registerScreens() {
   Navigation.registerComponent('example.Welcome', () => Welcome)
-  Navigation.registerComponent('example.Search', () => Search)
+  Navigation.registerComponent('example.Balloons', () => Balloons)
+  Navigation.registerComponent('example.Balloon', () => Balloon)
+  Navigation.registerComponent('example.Pilots', () => Pilots)
+  Navigation.registerComponent('example.Pilot', () => Pilot)
   Navigation.registerComponent('example.Home', () => Home)
-  Navigation.registerComponent('example.Settings', () => Settings)
 
 }
 
@@ -28,19 +29,19 @@ syncEnchancer(Navigation.startTabBasedApp({
     {
       label: 'Home',
       screen: 'example.Home', // this is a registered name for a screen
-      // icon: require('../img/one.png'),
-      // selectedIcon: require('../img/one_selected.png'), // iOS only
+      icon: require('./images/home_tab_button_ios.png'),
+      selectedIcon: require('./images/home_tab_button_ios_filed.png'), // iOS only
       title: 'Home'
     },
     {
-      label: 'Search',
-      screen: 'example.Search',
-      title: 'Search'
-    },
-    {
-      label: 'Settings',
-      screen: 'example.Settings',
-      title: 'Settings'
+      label: 'Balloons',
+      screen: 'example.Balloons',
+      icon: require('./images/balloons_tab_button_ios.png'),
+      selectedIcon: require('./images/balloons_tab_button_ios_filed.png'), // iOS only
+      title: 'Balloons'
     }
-  ]
+  ],
+  tabsStyle: { // optional, **iOS Only** add this if you want to style the tab bar beyond the defaults
+    // tabBarButtonColor: 'black'
+  }
 }));

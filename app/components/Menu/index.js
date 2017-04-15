@@ -23,13 +23,13 @@ import { MenuButton, MenuItem, CountDown, Weather } from '../';
 // import Alert from '../lib/Alert';
 import styles from './styles';
 
-export default class Menu extends Component {
+class Menu extends Component {
   state = {
     editProfilesInProgress: false,
     items: [
       { key: 1, name: 'Home', title: 'Home' },
       { key: 2, name: 'Welcome', title: 'Welcome' },
-      { key: 3, name: 'Settings', title: 'Settings' },
+      { key: 3, name: 'Instagram', title: 'Instagram' },
     ],
   };
 
@@ -37,22 +37,28 @@ export default class Menu extends Component {
     super(props);
   }
 
-  toggleDrawer = (to, side, animated) => {
+  toggleDrawer = (to: string, side: string, animated: boolean) => {
     this.props.navigator.toggleDrawer({
       to,
       side,
       animated,
     });
   };
-  goTo = (scene, sceneTitle) => {
+  goTo = (scene: string, sceneTitle: string) => {
     this.toggleDrawer('closed', 'left', true);
-    this.props.navigator.push({
-      screen: `example.${scene}`,
-      title: sceneTitle ? sceneTitle : 'Title',
-    });
+
+    if (scene !== 'Home') {
+      console.log(scene);
+      this.props.navigator.resetTo({
+        screen: `example.${scene}`,
+        title: sceneTitle ? sceneTitle : 'Title',
+      });
+    }
+
+    this.props.navigator.popToRoot({ animated: true });
   };
 
-  renderRow = item => {
+  renderRow = (item: Object) => {
     return item
       ? <MenuItem
           key={item.key}
@@ -73,7 +79,7 @@ export default class Menu extends Component {
       : null;
   };
 
-  renderSeparator = (sectionId, keyId) => {
+  renderSeparator = (sectionId: Number, keyId: Number) => {
     return <View key={keyId} style={[styles.menuListSeparator]} />;
   };
 
@@ -100,7 +106,7 @@ export default class Menu extends Component {
       <View
         style={[
           styles.menu,
-          { width: Dimensions.get('screen').width / 2 + 100 },
+          { width: Dimensions.get('window').width / 2 + 100 },
         ]}
       >
         <View style={[styles.menuMeta]}>
@@ -179,3 +185,5 @@ export default class Menu extends Component {
     );
   }
 }
+
+export default Menu;

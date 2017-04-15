@@ -5,6 +5,7 @@
 import { Platform, Dimensions } from 'react-native';
 
 const app = {
+  baseBlue: '#2C5197',
   navbar: {
     backgroundColor: '#D42B3A',
     menu: {

@@ -11,7 +11,7 @@ class Search extends Component {
     ...navigatorStyles,
   };
 
-  goTo = scene => {
+  goTo = (scene: string) => {
     this.props.navigator.push({
       screen: scene ? scene : 'example.Home', // unique ID registered with Navigation.registerScreen
       title: 'Home',

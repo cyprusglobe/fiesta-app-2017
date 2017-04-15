@@ -18,13 +18,6 @@ exports[`Home renders correctly 1`] = `
         "flex": 1,
       }
     }
-  />
-  <View
-    style={
-      Object {
-        "flex": 1,
-      }
-    }
   >
     <View
       style={

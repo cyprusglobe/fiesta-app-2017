@@ -4,18 +4,43 @@ import {
   View,
   Image,
   StyleSheet,
+  TouchableOpacity,
 } from 'react-native';
+import { iconsMap, iconsLoaded } from '../../utils/appIcons';
 
 class InstagramPhoto extends PureComponent {
   render() {
     let { item } = this.props;
     return (
-      <Image
-        key={item.item.description}
-        source={{ uri: item.item.imageUrl }}
-        resizeMode="cover"
-        style={styles.instagramImage}
-      />
+      <TouchableOpacity
+        onPress={() =>
+          this.props.navigator.showModal({
+            screen: 'example.InstagramPhotoModal',
+            animationType: 'slide-up',
+            navigatorStyle: {
+              navBarButtonColor: 'white',
+              navBarTextColor: 'white',
+            },
+            backButtonHidden: false,
+            navigatorButtons: {
+              leftButtons: [
+                {
+                  id: 'cancel',
+                },
+              ],
+            },
+            passProps: {
+              imageUrl: item.item.imageUrl,
+            },
+          })}
+      >
+        <Image
+          key={item.item.description}
+          source={{ uri: item.item.imageUrl }}
+          resizeMode="cover"
+          style={styles.instagramImage}
+        />
+      </TouchableOpacity>
     );
   }
 }
