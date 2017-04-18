@@ -9,7 +9,6 @@ import {
 } from 'react-native';
 import InstagramPhoto from '../InstagramPhoto';
 
-
 class InstagramPhotos extends PureComponent {
   state = {
     images: null,

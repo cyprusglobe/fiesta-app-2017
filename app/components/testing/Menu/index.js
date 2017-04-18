@@ -24,7 +24,6 @@ import { MenuItemTesting as MenuItem } from '../';
 // import Alert from '../lib/Alert';
 import styles from './styles';
 
-
 class MenuTesting extends Component {
   state = {
     currentScreen: 'Home',
@@ -56,10 +55,16 @@ class MenuTesting extends Component {
       },
       {
         key: 5,
+        name: 'Pilots',
+        title: 'Pilots',
+        iconUrl: require('../../../../images/error_loading_nav_button.png'),
+      },
+      {
+        key: 6,
         name: 'Notifications',
         title: 'Notifications',
-        iconUrl: require('../../../../images/notification_nav_button_android.png')
-      }
+        iconUrl: require('../../../../images/notification_nav_button_android.png'),
+      },
     ],
   };
 
@@ -74,6 +79,7 @@ class MenuTesting extends Component {
       animated,
     });
   };
+
   goTo = (scene: string, sceneTitle: string) => {
     // alert(scene)
     this.toggleDrawer('closed', 'left', true);
@@ -82,8 +88,6 @@ class MenuTesting extends Component {
       screen: `example.${scene}`,
       title: sceneTitle ? sceneTitle : 'Title',
     });
-
-
 
     // this.props.navigator.popToRoot({ animated: true });
   };
@@ -94,7 +98,12 @@ class MenuTesting extends Component {
           key={item.key}
           action={() => this.goTo(item.name, item.title)}
         >
-          <View style={[styles.menuContainer, { flexDirection: 'column' }]}>
+          <View
+            style={[
+              styles.menuContainer,
+              { flexDirection: 'column', paddingBottom: 10 },
+            ]}
+          >
             <Image source={item.iconUrl} style={{ width: 50, height: 50 }} />
             <Text style={{ color: 'white', fontWeight: '600' }}>
               {item.title}

@@ -11,7 +11,10 @@ import {
   Image,
   ScrollView,
   Dimensions,
+  Alert,
 } from 'react-native';
+
+import { PilotItem } from '../../components';
 
 import Icon from 'react-native-vector-icons/Ionicons';
 
@@ -34,8 +37,35 @@ class Balloon extends Component {
     return null;
   };
 
+  promptForLongPress = (pilot: Object, balloon: Object) => {
+    const { navigator } = this.props;
+
+    Alert.alert(
+      'Question',
+      `Would you like to view the Primary Pilot for "${balloon.name}"`,
+      [
+        {
+          text: 'Cancel',
+          onPress: () => {},
+          style: 'cancel',
+        },
+        {
+          text: 'OK',
+          onPress: () =>
+            navigator.push({
+              screen: 'example.Pilot',
+              title: pilot.common_name,
+              passProps: {
+                pilot: pilot,
+              },
+            }),
+        },
+      ]
+    );
+  };
+
   render() {
-    const { balloon } = this.props;
+    const { balloon, navigator } = this.props;
     const image_url = `${Constants.IMAGE_URL}/${balloon.reg_num}/x800`;
 
     return (
@@ -65,9 +95,16 @@ class Balloon extends Component {
               paddingRight: 10,
             })}
           </View>
-          <View>
-            <Text>Item 1</Text>
-          </View>
+          <Text>Primary Pilot</Text>
+          <PilotItem
+            pilot={balloon.pilot}
+            onPressAction={() =>
+              navigator.push({
+                screen: 'example.Pilot',
+                title: balloon.pilot.common_name,
+                passProps: { pilot: balloon.pilot, isPreview: true },
+              })}
+          />
         </ScrollView>
       </View>
     );

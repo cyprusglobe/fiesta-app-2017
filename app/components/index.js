@@ -6,7 +6,8 @@ export { default as StartHelper } from './StartHelper';
 
 export { default as MenuItem } from './MenuItem';
 export { default as ProfileItem } from './ProfileItem';
-export { default as PilotItem } from './PilotItem'
+
+export { default as PilotItem } from './PilotItem';
 export { default as BalloonItem } from './BalloonItem';
 
 export { default as MenuButton } from './MenuButton';

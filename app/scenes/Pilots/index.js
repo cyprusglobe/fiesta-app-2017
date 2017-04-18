@@ -28,87 +28,94 @@ class Pilots extends Component {
     items: [
       {
         key: 1,
-        name: 'Kiphaven',
-        reg_num: 'N747KH',
-        special_shape: true,
-        competition_balloon: true,
-        pilot: {
-          common_name: 'Jim Abell',
-          first_name: 'Jim',
-          last_name: 'Abell',
+        balloon: {
+          id: 1,
+          name: 'Kiphaven',
+          reg_num: 'N747KH',
+          special_shape: true,
+          competition_balloon: true,
         },
+        common_name: 'Jim Abell',
+        first_name: 'Jim',
+        last_name: 'Abell',
       },
       {
         key: 2,
-        name: 'Transition',
-        reg_num: 'N3287V',
-        special_shape: true,
-        competition_balloon: false,
-        pilot: {
-          common_name: 'Kurt Adelsberger',
-          first_name: 'Kurt',
-          last_name: 'Adelsberger',
+        balloon: {
+          id: 2,
+          name: 'Transition',
+          reg_num: 'N3287V',
+          special_shape: true,
+          competition_balloon: false,
         },
+        common_name: 'Kurt Adelsberger',
+        first_name: 'Kurt',
+        last_name: 'Adelsberger',
       },
       {
         key: 3,
-        name: 'This End Up',
-        reg_num: 'N45054',
-        special_shape: true,
-        competition_balloon: false,
-        pilot: {
-          common_name: 'Derek Browning',
-          first_name: 'Derek',
-          last_name: 'Browning',
+        balloon: {
+          id: 3,
+          name: 'This End Up',
+          reg_num: 'N45054',
+          special_shape: true,
+          competition_balloon: false,
         },
+        common_name: 'Derek Browning',
+        first_name: 'Derek',
+        last_name: 'Browning',
       },
       {
         key: 4,
-        name: 'Dos Equis',
-        reg_num: 'N3011Q',
-        special_shape: true,
-        competition_balloon: true,
-        pilot: {
-          common_name: 'Scott Appelman',
-          first_name: 'Scott',
-          last_name: 'Appelman',
+        balloon: {
+          id: 4,
+          name: 'Dos Equis',
+          reg_num: 'N3011Q',
+          special_shape: true,
+          competition_balloon: true,
         },
+        common_name: 'Scott Appelman',
+        first_name: 'Scott',
+        last_name: 'Appelman',
       },
       {
         key: 5,
-        name: 'Band of Gold',
-        reg_num: 'N379LB',
-        special_shape: true,
-        competition_balloon: false,
-        pilot: {
-          common_name: 'William Armstrong',
-          first_name: 'William',
-          last_name: 'Armstrong',
+        balloon: {
+          id: 5,
+          name: 'Band of Gold',
+          reg_num: 'N379LB',
+          special_shape: true,
+          competition_balloon: false,
         },
+        common_name: 'William Armstrong',
+        first_name: 'William',
+        last_name: 'Armstrong',
       },
       {
         key: 6,
-        name: '7th Heaven',
-        reg_num: 'N89LB',
-        special_shape: true,
-        competition_balloon: true,
-        pilot: {
-          common_name: 'Savannah Bradley',
-          first_name: 'Savannah',
-          last_name: 'Bradley',
+        balloon: {
+          id: 6,
+          name: '7th Heaven',
+          reg_num: 'N89LB',
+          special_shape: true,
+          competition_balloon: true,
         },
+        common_name: 'Savannah Bradley',
+        first_name: 'Savannah',
+        last_name: 'Bradley',
       },
       {
         key: 7,
-        name: 'That A Way',
-        reg_num: 'N4508B',
-        special_shape: true,
-        competition_balloon: false,
-        pilot: {
-          common_name: 'David Bobel',
-          first_name: 'David',
-          last_name: 'Bobel',
+        balloon: {
+          id: 7,
+          name: 'That A Way',
+          reg_num: 'N4508B',
+          special_shape: true,
+          competition_balloon: false,
         },
+        common_name: 'David Bobel',
+        first_name: 'David',
+        last_name: 'Bobel',
       },
     ],
   };
@@ -116,17 +123,17 @@ class Pilots extends Component {
   componentDidMount() {
     Ionicons.getImageSource(...switchIconPerPlatform('funnel')).then(filter => {
       this.props.navigator.setButtons({
-        rightButtons: [{ id: 'filter-balloons', icon: filter }],
+        rightButtons: [{ id: 'filter-pilots', icon: filter }],
       });
     });
   }
 
-  promptForLongPress = balloon => {
+  promptForLongPress = pilot => {
     const { navigator } = this.props;
 
     Alert.alert(
       'Question',
-      `Would you like to view the pilot for "${balloon.name}"`,
+      `Would you like to view the balloon for "${pilot.balloon.name}"`,
       [
         {
           text: 'Cancel',
@@ -137,10 +144,10 @@ class Pilots extends Component {
           text: 'OK',
           onPress: () =>
             navigator.push({
-              screen: 'example.Pilot',
-              title: balloon.pilot.common_name,
+              screen: 'example.Balloon',
+              title: pilot.balloon.name,
               passProps: {
-                pilot: balloon.pilot,
+                balloon: pilot.balloon,
               },
             }),
         },
@@ -148,19 +155,19 @@ class Pilots extends Component {
     );
   };
 
-  renderRow = balloon => {
+  renderRow = pilot => {
     const { navigator } = this.props;
 
     return (
       <PilotItem
-        balloon={balloon}
+        pilot={pilot}
         onPressAction={() =>
           navigator.push({
             screen: 'example.Pilot',
-            title: balloon.name,
-            passProps: { pilot: balloon.pilot },
+            title: pilot.common_name,
+            passProps: { pilot: pilot },
           })}
-        onLongPressAction={() => this.promptForLongPress(balloon)}
+        onLongPressAction={() => this.promptForLongPress(pilot)}
       />
     );
   };
@@ -170,7 +177,7 @@ class Pilots extends Component {
   }
 
   shouldItemUpdate(prev, next) {
-    return prev.item.name !== next.item.name;
+    return prev.item.common_name !== next.item.common_name;
   }
 
   render() {
@@ -191,4 +198,4 @@ class Pilots extends Component {
   }
 }
 
-export default Pilots
+export default Pilots;

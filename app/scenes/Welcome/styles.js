@@ -1,5 +1,7 @@
 import { StyleSheet } from 'react-native';
 
+import { theme } from '../../theme';
+
 export default StyleSheet.create({
   welcome: {
     flex: 1,
@@ -7,7 +9,7 @@ export default StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     paddingBottom: 50,
-    backgroundColor: '#ecf0f1',
+    backgroundColor: theme.app.baseBlue,
   },
   welcomeText: {
     width: 200,

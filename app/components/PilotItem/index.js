@@ -18,31 +18,19 @@ import * as Constants from '../../constants';
 
 class PilotItem extends Component {
   render() {
-    const { balloon, onPressAction, onLongPressAction } = this.props;
+    const { pilot, onPressAction, onLongPressAction } = this.props;
 
-    const image_url = `${Constants.IMAGE_URL}/${balloon.reg_num}/300x`;
+    // const image_url = `${Constants.IMAGE_URL}/${balloon.reg_num}/300x`;
+
     return (
       <TouchableOpacity
         style={[styles.itemContainer]}
         onPress={onPressAction}
         onLongPress={onLongPressAction}
       >
-        <Image
-          source={{ uri: image_url }}
-          style={styles.balloonImage}
-          resizeMode="contain"
-        />
         <View style={[styles.textContainer, { flex: 1 }]}>
-          {balloon.competition_balloon
-            ? <Icon
-                name="md-trophy"
-                size={14}
-                color="gray"
-                style={{ alignSelf: 'flex-end', paddingRight: 10 }}
-              />
-            : null}
-          <Text style={styles.titleText}>{balloon.name}</Text>
-          <Text style={styles.subTitleText}>{balloon.reg_num}</Text>
+          <Text style={styles.titleText}>{pilot.first_name}</Text>
+          <Text style={styles.subTitleText}>{pilot.last_name}</Text>
         </View>
 
       </TouchableOpacity>

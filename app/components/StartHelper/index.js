@@ -11,7 +11,13 @@ class StartHelper extends Component {
 
     return (
       <View style={containerStyle}>
-        <Image source={imageStartThere} style={imageStyle} />
+        <Image
+          source={{
+            uri: 'http://balloonfiesta.com/assets/images/fiestaballoon2.png',
+          }}
+          style={imageStyle}
+          resizeMode="contain"
+        />
       </View>
     );
   }
