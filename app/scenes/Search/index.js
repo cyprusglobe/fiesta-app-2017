@@ -13,7 +13,7 @@ class Search extends Component {
 
   goTo = (scene: string) => {
     this.props.navigator.push({
-      screen: scene ? scene : 'example.Home', // unique ID registered with Navigation.registerScreen
+      screen: scene ? scene : 'bf.Home', // unique ID registered with Navigation.registerScreen
       title: 'Home',
     });
   };

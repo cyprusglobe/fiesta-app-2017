@@ -121,11 +121,11 @@ class Pilots extends Component {
   };
 
   componentDidMount() {
-    Ionicons.getImageSource(...switchIconPerPlatform('funnel')).then(filter => {
-      this.props.navigator.setButtons({
-        rightButtons: [{ id: 'filter-pilots', icon: filter }],
-      });
-    });
+    // Ionicons.getImageSource(...switchIconPerPlatform('', 'funnel', 'funnel')).then(filter => {
+    //   this.props.navigator.setButtons({
+    //     rightButtons: [{ id: 'filter-pilots', icon: filter }],
+    //   });
+    // });
   }
 
   promptForLongPress = pilot => {
@@ -133,7 +133,7 @@ class Pilots extends Component {
 
     Alert.alert(
       'Question',
-      `Would you like to view the balloon for "${pilot.balloon.name}"`,
+      `Would you like to view the first primary balloon for "${pilot.common_name}"`,
       [
         {
           text: 'Cancel',
@@ -144,7 +144,7 @@ class Pilots extends Component {
           text: 'OK',
           onPress: () =>
             navigator.push({
-              screen: 'example.Balloon',
+              screen: 'bf.Balloon',
               title: pilot.balloon.name,
               passProps: {
                 balloon: pilot.balloon,
@@ -163,9 +163,9 @@ class Pilots extends Component {
         pilot={pilot}
         onPressAction={() =>
           navigator.push({
-            screen: 'example.Pilot',
+            screen: 'bf.Pilot',
             title: pilot.common_name,
-            passProps: { pilot: pilot },
+            passProps: { pilot: pilot, isPreview: false },
           })}
         onLongPressAction={() => this.promptForLongPress(pilot)}
       />
@@ -189,13 +189,32 @@ class Pilots extends Component {
           legacyImplementation={false}
           renderItem={({ item }) => this.renderRow(item)}
           viewabilityConfig={VIEWABILITY_CONFIG}
-          shouldItemUpdate={({ prev, next }) =>
-            this.shouldItemUpdate(prev, next)}
           ItemSeparatorComponent={() => this.renderSeperator()}
         />
       </View>
     );
   }
 }
+
+/*Pilots.navigationOptions = props => {
+  const { navigation } = props;
+  const { state, setParams, navigate } = navigation;
+  const { params } = state;
+  return {
+    headerTitle: 'Pilots',
+    // Render a button on the right side of the header.
+    // When pressed switches the screen to edit mode.
+    headerPressColorAndroid: 'red',
+    headerLeft: (
+      <Ionicons
+        name="md-menu"
+        color="black"
+        size={26}
+        style={{ paddingLeft: 10 }}
+        onPress={() => navigate('DrawerOpen')}
+      />
+    ),
+  };
+};*/
 
 export default Pilots;

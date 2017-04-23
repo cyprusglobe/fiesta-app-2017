@@ -8,42 +8,39 @@ import {
 } from 'react-native';
 import { iconsMap, iconsLoaded } from '../../utils/appIcons';
 
-class InstagramPhoto extends PureComponent {
-  render() {
-    let { item } = this.props;
-    return (
-      <TouchableOpacity
-        onPress={() =>
-          this.props.navigator.showModal({
-            screen: 'example.InstagramPhotoModal',
-            animationType: 'slide-up',
-            navigatorStyle: {
-              navBarButtonColor: 'white',
-              navBarTextColor: 'white',
-            },
-            backButtonHidden: false,
-            navigatorButtons: {
-              leftButtons: [
-                {
-                  id: 'cancel',
-                },
-              ],
-            },
-            passProps: {
-              imageUrl: item.item.imageUrl,
-            },
-          })}
-      >
-        <Image
-          key={item.item.description}
-          source={{ uri: item.item.imageUrl }}
-          resizeMode="cover"
-          style={styles.instagramImage}
-        />
-      </TouchableOpacity>
-    );
-  }
-}
+const InstagramPhoto = ({ navigator, item }) => {
+  return (
+    <TouchableOpacity
+      onPress={() =>
+        navigator.showModal({
+          screen: 'bf.InstagramPhotoModal',
+          animationType: 'slide-up',
+          navigatorStyle: {
+            navBarButtonColor: 'white',
+            navBarTextColor: 'white',
+          },
+          backButtonHidden: false,
+          navigatorButtons: {
+            leftButtons: [
+              {
+                id: 'cancel',
+              },
+            ],
+          },
+          passProps: {
+            imageUrl: item.item.imageUrl,
+          },
+        })}
+    >
+      <Image
+        key={item.item.description}
+        source={{ uri: item.item.imageUrl }}
+        resizeMode="cover"
+        style={styles.instagramImage}
+      />
+    </TouchableOpacity>
+  );
+};
 
 const styles = StyleSheet.create({
   instagramImage: {

@@ -13,7 +13,7 @@ class Landing extends Component {
 
   goTo = () => {
     this.props.navigator.push({
-      screen: 'example.Settings', // unique ID registered with Navigation.registerScreen
+      screen: 'bf.Settings', // unique ID registered with Navigation.registerScreen
       title: 'Settings',
     });
   };

@@ -21,17 +21,17 @@ class Instagram extends Component {
 
   goTo = () => {
     this.props.navigator.push({
-      screen: 'example.Home', // unique ID registered with Navigation.registerScreen
+      screen: 'bf.Home', // unique ID registered with Navigation.registerScreen
       title: 'Home',
     });
   };
 
   componentDidMount() {
-    Ionicons.getImageSource(...switchIconPerPlatform('funnel')).then(filter => {
-      this.props.navigator.setButtons({
-        rightButtons: [{ id: 'filter-photos', icon: filter }],
-      });
-    });
+    // Ionicons.getImageSource(...switchIconPerPlatform('', 'funnel', 'funnel')).then(filter => {
+    //   this.props.navigator.setButtons({
+    //     rightButtons: [{ id: 'filter-photos', icon: filter }],
+    //   });
+    // });
   }
 
   render() {

@@ -16,7 +16,7 @@ import {
 
 import { PilotItem } from '../../components';
 
-import Icon from 'react-native-vector-icons/Ionicons';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
 import { config } from './config';
 
@@ -29,10 +29,15 @@ class Balloon extends Component {
   static navigatorStyle = {
     ...config.navigatorStyles,
   };
+  state = {
+    liked: false,
+  };
 
   renderIcon = (condition: any, icon: string, size: number, style: Object) => {
     if (condition) {
-      return <Icon name={icon} size={size} color="gray" style={{ ...style }} />;
+      return (
+        <Ionicons name={icon} size={size} color="gray" style={{ ...style }} />
+      );
     }
     return null;
   };
@@ -53,10 +58,11 @@ class Balloon extends Component {
           text: 'OK',
           onPress: () =>
             navigator.push({
-              screen: 'example.Pilot',
+              screen: 'bf.Pilot',
               title: pilot.common_name,
               passProps: {
                 pilot: pilot,
+                isPreview: true,
               },
             }),
         },
@@ -65,7 +71,7 @@ class Balloon extends Component {
   };
 
   render() {
-    const { balloon, navigator } = this.props;
+    const { pilot, balloon, navigator } = this.props;
     const image_url = `${Constants.IMAGE_URL}/${balloon.reg_num}/x800`;
 
     return (
@@ -97,12 +103,12 @@ class Balloon extends Component {
           </View>
           <Text>Primary Pilot</Text>
           <PilotItem
-            pilot={balloon.pilot}
+            pilot={pilot}
             onPressAction={() =>
               navigator.push({
-                screen: 'example.Pilot',
-                title: balloon.pilot.common_name,
-                passProps: { pilot: balloon.pilot, isPreview: true },
+                screen: 'bf.Pilot',
+                title: pilot.common_name,
+                passProps: { pilot: pilot, isPreview: true },
               })}
           />
         </ScrollView>
@@ -110,5 +116,31 @@ class Balloon extends Component {
     );
   }
 }
+
+/*Balloon.navigationOptions = props => {
+  const { navigation } = props;
+  const { state, setParams, navigate } = navigation;
+  const { params } = state;
+  console.log(params);
+  return {
+    ...config.navigationOptions,
+    headerTitle: navigation.state.params.balloon.name,
+    headerRight: !params.liked
+      ? <Ionicons
+          name="md-heart-outline"
+          color={theme.app.navbar.menu.text.color}
+          size={26}
+          style={{ paddingRight: 10 }}
+          onPress={() => setParams({ liked: true })}
+        />
+      : <Ionicons
+          name="md-heart"
+          color={theme.app.navbar.menu.text.color}
+          size={26}
+          style={{ paddingRight: 10 }}
+          onPress={() => setParams({ liked: false })}
+        />,
+  };
+};*/
 
 export default Balloon;

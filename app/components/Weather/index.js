@@ -22,7 +22,9 @@ class Weather extends Component {
   };
 
   fetchWeather = () => {
-    let url = `https://api.wunderground.com/api/88fa17d19b77bfc5/conditions/q/pws:KNMALBUQ415.json`;
+    let api_key = 'c5044610336c269a';
+
+    let url = `https://api.wunderground.com/api/${api_key}/conditions/q/pws:KNMALBUQ415.json`;
     return fetch(url).then(response => response.json());
   };
 
@@ -44,17 +46,13 @@ class Weather extends Component {
             ? <Text style={{ color: 'white' }}>
                 Temp: {this.state.weather.current_observation.temp_f} (F)
                 Feels Like:
-                {' '}
                 {this.state.weather.current_observation.feelslike_f}
-                {' '}
                 (F)
               </Text>
             : null}
           <Text style={{ color: 'white' }}>
             Wind Gust:
-            {' '}
             {this.state.weather.current_observation.wind_gust_mph}
-            {' '}
             (mph)
           </Text>
           <Text style={{ color: 'white' }}>
@@ -65,7 +63,6 @@ class Weather extends Component {
           </Text>
           <Text style={{ fontSize: 10, color: 'white' }}>
             Last Updated:
-            {' '}
             {this.state.last_updated &&
               moment(this.state.last_updated).format('M/D/YYYY hh:mm:ss')}
           </Text>

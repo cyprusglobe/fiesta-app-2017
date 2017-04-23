@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import moment from 'moment';
 
 import { View, Text, StyleSheet } from 'react-native';
 
-class CountDown extends Component {
+class CountDown extends PureComponent {
   constructor(props) {
     super(props);
 

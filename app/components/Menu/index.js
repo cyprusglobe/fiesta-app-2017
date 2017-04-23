@@ -50,7 +50,7 @@ class Menu extends Component {
     if (scene !== 'Home') {
       console.log(scene);
       this.props.navigator.resetTo({
-        screen: `example.${scene}`,
+        screen: `bf.${scene}`,
         title: sceneTitle ? sceneTitle : 'Title',
       });
     }

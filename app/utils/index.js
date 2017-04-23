@@ -5,12 +5,24 @@ export { iconsMap, iconsLoaded } from './appIcons';
 export { combineStyles } from './combineStyles';
 export { loadIconImages } from './iconImages.js';
 
-switchIconPerPlatform = iconName => {
-  const plat = Platform.OS === 'android' ? 'md' : 'ios';
-
+switchIconPerPlatform = (iconName, ios, md) => {
+  const plat = Platform.OS !== 'android' ? 'md' : 'ios';
   const size = Platform.OS === 'android' ? 24 : 20;
 
-  return [`${plat}-${iconName}`, size];
+  if (iconName !== '') return `${plat}-${iconName}`;
+
+  if (ios) {
+    return `${ios}`;
+  } else {
+    return `${md}`;
+  }
+  // const selection = ios || md;
+  // if (ios !== "" && md !== "") {
+  //   if ios {
+  //     return [`${plat}-${ios}`, size];
+  //   }
+  //   return [`${plat}-${md}`, size];
+  // }
 };
 
 getIconSizePixelRatio = size => {

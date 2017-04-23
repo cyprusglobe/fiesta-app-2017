@@ -6,6 +6,10 @@ import { StartHelper } from '../../components';
 import styles from './styles';
 
 class Welcome extends Component {
+  static navigationOptions = {
+    title: 'Welcome',
+  };
+
   render() {
     return (
       <View style={styles.welcome}>

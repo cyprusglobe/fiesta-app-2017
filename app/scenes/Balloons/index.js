@@ -1,9 +1,11 @@
-import React, { Component } from 'react';
+import React, { Component, PureComponent } from 'react';
 import { View, StyleSheet, Text, FlatList, Alert } from 'react-native';
 
 import { BalloonItem } from '../../components';
 import { config } from './config';
 import styles from './styles';
+
+import { theme } from '../../theme';
 
 import { getIconSizePixelRatio, switchIconPerPlatform } from '../../utils';
 
@@ -15,7 +17,7 @@ const VIEWABILITY_CONFIG = {
   waitForInteraction: true,
 };
 
-export default class Balloons extends Component {
+class Balloons extends PureComponent {
   constructor(props) {
     super(props);
   }
@@ -36,6 +38,12 @@ export default class Balloons extends Component {
           common_name: 'Jim Abell',
           first_name: 'Jim',
           last_name: 'Abell',
+          balloon: {
+            name: 'Kiphaven',
+            reg_num: 'N747KH',
+            special_shape: true,
+            competition_balloon: true,
+          },
         },
       },
       {
@@ -114,19 +122,18 @@ export default class Balloons extends Component {
   };
 
   componentDidMount() {
-    Ionicons.getImageSource(...switchIconPerPlatform('funnel')).then(filter => {
-      this.props.navigator.setButtons({
-        rightButtons: [{ id: 'filter-balloons', icon: filter }],
-      });
-    });
+    // Ionicons.getImageSource(...switchIconPerPlatform('', 'funnel', 'funnel')).then(filter => {
+    //   this.props.navigator.setButtons({
+    //     rightButtons: [{ id: 'filter-balloons', icon: filter }],
+    //   });
+    // });
   }
 
   promptForLongPress = balloon => {
     const { navigator } = this.props;
-
     Alert.alert(
       'Question',
-      `Would you like to view the pilot for "${balloon.name}"`,
+      `Would you like to view the primary pilot for "${balloon.name}"`,
       [
         {
           text: 'Cancel',
@@ -137,16 +144,24 @@ export default class Balloons extends Component {
           text: 'OK',
           onPress: () =>
             navigator.push({
-              screen: 'example.Pilot',
+              screen: 'bf.Pilot',
               title: balloon.pilot.common_name,
-              passProps: {
-                pilot: balloon.pilot,
-              },
+              passProps: { balloon: balloon, pilot: balloon.pilot },
             }),
         },
       ]
     );
   };
+
+  _shouldItemUpdate(prev, next) {
+    /**
+     * Note that this does not check state.horizontal or state.fixedheight
+     * because we blow away the whole list by changing the key in those cases.
+     * Make sure that you do the same in your code, or incorporate all relevant
+     * data into the item data, or skip this optimization entirely.
+     */
+    return prev.item !== next.item;
+  }
 
   renderRow = balloon => {
     const { navigator } = this.props;
@@ -156,9 +171,9 @@ export default class Balloons extends Component {
         balloon={balloon}
         onPressAction={() =>
           navigator.push({
-            screen: 'example.Balloon',
+            screen: 'bf.Balloon',
             title: balloon.name,
-            passProps: { balloon: balloon },
+            passProps: { balloon: balloon, pilot: balloon.pilot },
           })}
         onLongPressAction={() => this.promptForLongPress(balloon)}
       />
@@ -181,11 +196,30 @@ export default class Balloons extends Component {
           legacyImplementation={false}
           renderItem={({ item }) => this.renderRow(item)}
           viewabilityConfig={VIEWABILITY_CONFIG}
-          shouldItemUpdate={({ prev, next }) =>
-            this.shouldItemUpdate(prev, next)}
+          shouldItemUpdate={this._shouldItemUpdate}
           ItemSeparatorComponent={() => this.renderSeperator()}
         />
       </View>
     );
   }
 }
+
+/*Balloons.navigationOptions = props => {
+  const { navigation } = props;
+  const { state, setParams, navigate } = navigation;
+  const { params } = state;
+  return {
+    ...config.navigationOptions,
+    headerLeft: (
+      <Ionicons
+        name="md-menu"
+        color={theme.app.navbar.menu.text.color}
+        size={26}
+        style={{ paddingLeft: 10 }}
+        onPress={() => navigate('DrawerOpen')}
+      />
+    ),
+  };
+};*/
+
+export default Balloons;

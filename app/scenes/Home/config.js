@@ -1,7 +1,14 @@
 /**
  * @flow
  */
+
+import React from 'react';
+
+import { Image, Text, Button, PixelRatio } from 'react-native';
+
 import { theme } from '../../theme';
+
+import Icon from 'react-native-vector-icons/Ionicons';
 
 const navigatorStyles = {
   drawUnderNavBar: false,
@@ -14,4 +21,9 @@ const navigatorStyles = {
   drawerBackgroundColor: theme.app.drawer.backgroundColor,
 };
 
-export default navigatorStyles;
+const navigatorButtons = {};
+
+export const config = {
+  navigatorStyles,
+  navigatorButtons,
+};

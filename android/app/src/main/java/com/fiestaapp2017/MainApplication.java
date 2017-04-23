@@ -4,6 +4,8 @@ import com.facebook.react.ReactPackage;
 import com.microsoft.codepush.react.CodePush;
 import com.reactnativenavigation.NavigationApplication;
 import com.oblador.vectoricons.VectorIconsPackage;
+import com.facebook.soloader.SoLoader;
+
 
 import java.util.Arrays;
 import java.util.List;
@@ -22,5 +24,11 @@ public class MainApplication extends NavigationApplication {
             new CodePush("rGBMHmBiNyufw2vac_zSx0g985fS4JhxgyNoG", MainApplication.this, BuildConfig.DEBUG),
             new VectorIconsPackage()
     );
+  }
+
+  @Override
+  public void onCreate() {
+    super.onCreate();
+    SoLoader.init(this, /* native exopackage */ false);
   }
 }

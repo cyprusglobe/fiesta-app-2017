@@ -37,7 +37,7 @@ let iconsLoaded = new Promise((resolve, reject) => {
     })
   ).then(sources => {
     Object.keys(icons).forEach(
-      (iconName, idx) => iconsMap[iconName] = sources[idx]
+      (iconName, idx) => (iconsMap[iconName] = sources[idx])
     );
 
     // Call resolve (and we are done)

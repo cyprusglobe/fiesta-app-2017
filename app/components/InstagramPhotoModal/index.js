@@ -14,6 +14,7 @@ export default class InstagramPhotoModal extends Component {
     navBarTransparent: true,
     navBarTranslucent: true,
   };
+
   constructor(props) {
     super(props);
     this.props.navigator.setOnNavigatorEvent(this._onNavigatorEvent.bind(this));
@@ -23,7 +24,7 @@ export default class InstagramPhotoModal extends Component {
     console.log(event);
     if (event.type === 'NavBarButtonPress') {
       if (event.id === 'cancel') {
-        this.props.navigator.dismissModal({ animationType: 'slide-down' });
+        this.props.navigator.dismissModal({ animationType: 'slide-up' });
       }
     }
   }

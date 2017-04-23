@@ -21,7 +21,6 @@ import {
 import { MenuButton, CountDown, Weather } from '../../';
 import { MenuItemTesting as MenuItem } from '../';
 
-// import Alert from '../lib/Alert';
 import styles from './styles';
 
 class MenuTesting extends Component {
@@ -85,7 +84,7 @@ class MenuTesting extends Component {
     this.toggleDrawer('closed', 'left', true);
 
     this.props.navigator.push({
-      screen: `example.${scene}`,
+      screen: `bf.${scene}`,
       title: sceneTitle ? sceneTitle : 'Title',
     });
 

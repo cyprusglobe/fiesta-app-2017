@@ -16,3 +16,5 @@ export { default as CountDown } from './CountDown';
 export { default as Weather } from './Weather';
 
 export { default as CornerLabel } from './CornerLabel';
+
+export { default as ProgressiveImage } from './ProgressiveImage';

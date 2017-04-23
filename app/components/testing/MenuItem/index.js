@@ -7,14 +7,12 @@ import { TouchableOpacity } from 'react-native';
 
 import styles from './styles';
 
-class MenuItemTesting extends Component {
-  render() {
-    return (
-      <TouchableOpacity style={styles.item} onPress={this.props.action}>
-        {this.props.children}
-      </TouchableOpacity>
-    );
-  }
-}
+const MenuItemTesting = ({ children, action }) => {
+  return (
+    <TouchableOpacity style={styles.item} onPress={action}>
+      {children}
+    </TouchableOpacity>
+  );
+};
 
 export default MenuItemTesting;

@@ -28,13 +28,15 @@
   NSURL *jsCodeLocation;
 
   jsCodeLocation = [NSURL URLWithString:@"http://localhost:8081/index.ios.bundle?platform=ios&dev=true"];
-  // jsCodeLocation = [CodePush bundleURL];
-  
-  
   
   self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
   self.window.backgroundColor = [UIColor whiteColor];
   [[RCCManager sharedInstance] initBridgeWithBundleURL:jsCodeLocation];
+
+  // jsCodeLocation = [CodePush bundleURL];
+  
+  
+  
 //  RCTRootView *rootView = [[RCTRootView alloc] initWithBundleURL:jsCodeLocation
 //                                                      moduleName:@"FiestaApp2017"
 //                                               initialProperties:nil
