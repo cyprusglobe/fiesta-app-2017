@@ -1,3 +1,7 @@
+/**
+ * @flow
+ */
+
 import React, { PureComponent } from 'react';
 import moment from 'moment';
 
@@ -52,6 +56,7 @@ class CountDown extends PureComponent {
 
   render() {
     const data = this.state.duration;
+
     return (
       <View
         style={{
@@ -68,7 +73,7 @@ class CountDown extends PureComponent {
           style={{
             flexDirection: 'column',
             alignItems: 'center',
-            paddingHorizontal: 10,
+            paddingHorizontal: 5,
           }}
         >
           <Text style={{ fontWeight: '200', color: 'white' }}>Days</Text>
@@ -80,7 +85,7 @@ class CountDown extends PureComponent {
           style={{
             flexDirection: 'column',
             alignItems: 'center',
-            paddingHorizontal: 10,
+            paddingHorizontal: 5,
           }}
         >
           <Text style={{ fontWeight: '200', color: 'white' }}>Hours</Text>
@@ -92,7 +97,7 @@ class CountDown extends PureComponent {
           style={{
             flexDirection: 'column',
             alignItems: 'center',
-            paddingHorizontal: 10,
+            paddingHorizontal: 5,
           }}
         >
           <Text style={{ fontWeight: '200', color: 'white' }}>Minutes</Text>
@@ -104,7 +109,7 @@ class CountDown extends PureComponent {
           style={{
             flexDirection: 'column',
             alignItems: 'center',
-            paddingHorizontal: 10,
+            paddingHorizontal: 5,
           }}
         >
           <Text style={{ fontWeight: '200', color: 'white' }}>Seconds</Text>

@@ -33,9 +33,35 @@ class Home extends Component {
     ...config.navigatorStyles,
   };
 
+  // static navigatorButtons = {
+  //   ...config.navigatorButtons,
+  // };
+
+  constructor(props) {
+    super(props);
+
+    this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent.bind(this));
+
+    this.props.navigator.setButtons({
+      ...config.navigatorButtons,
+    });
+
+    this.props.navigator.setTitle({
+      title: 'Home',
+    });
+  }
+
+  onNavigatorEvent(event) {
+    if (event.type === 'NavBarButtonPress') {
+      if (event.id === 'search') {
+        this.props.navigator.push({ screen: 'bf.Search' });
+      }
+    }
+  }
+
   goTo = (scene: string, sceneTitle: string) => {
     // console.log(this.props)
-    this.props.navigator.resetTo({
+    this.props.navigator.push({
       screen: scene ? scene : 'bf.Home', // unique ID registered with Navigation.registerScreen
       title: sceneTitle,
     });
@@ -44,24 +70,27 @@ class Home extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text>{this.props.appState}</Text>
-        <TouchableOpacity onPress={() => this.goTo('bf.Welcome', 'Welcome')}>
-          <Text>Go To Welcome Screen</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          onPress={() => this.goTo('bf.Instagram', 'Instagram')}
+        <View
+          style={{ width: '100%', paddingHorizontal: 10, alignItems: 'center' }}
         >
-          <Text>Go To Instagram Screen</Text>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => this.goTo('bf.Pilots', 'Pilots')}>
-          <Text>Go To Pilots Screen</Text>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => this.goTo('bf.Balloons', 'Balloons')}>
-          <Text>Go To Balloons Screen</Text>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => this.goTo('bf.Search', 'Search')}>
-          <Text>Go To Search Screen</Text>
-        </TouchableOpacity>
+          <Image
+            style={{ width: '100%' }}
+            source={require('../../../images/logo.png')}
+            resizeMode="contain"
+          />
+
+          <Image
+            style={{ width: '50%' }}
+            source={require('../../../images/sub_logo.png')}
+            resizeMode="contain"
+          />
+        </View>
+
+        <View style={{ width: '100%' }}>
+          <Text>Latest New's</Text>
+
+          <View />
+        </View>
       </View>
     );
   }
@@ -85,9 +114,9 @@ class Home extends Component {
   };
 };*/
 
+// TODO: remove redux from this page in future.
 function mapStateToProps(state) {
   const { appState } = state.app;
-  console.log(state);
   return {
     appState: appState,
   };

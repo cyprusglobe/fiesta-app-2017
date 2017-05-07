@@ -5,8 +5,8 @@ import {
   Image,
   StyleSheet,
   TouchableOpacity,
+  Platform,
 } from 'react-native';
-import { iconsMap, iconsLoaded } from '../../utils/appIcons';
 
 const InstagramPhoto = ({ navigator, item }) => {
   return (
@@ -19,11 +19,15 @@ const InstagramPhoto = ({ navigator, item }) => {
             navBarButtonColor: 'white',
             navBarTextColor: 'white',
           },
-          backButtonHidden: false,
+          backButtonHidden: true,
           navigatorButtons: {
-            leftButtons: [
+            rightButtons: [
               {
-                id: 'cancel',
+                id: 'close-modal-instagram',
+                title: 'Close',
+                icon: Platform.OS === 'android'
+                  ? require('../../../android/app/src/main/res/drawable-xhdpi/ic_close_modal.png')
+                  : require('../../../images/nav_close_button_ios.png'),
               },
             ],
           },

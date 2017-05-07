@@ -1159,6 +1159,7 @@
 				DEVELOPMENT_TEAM = GHJH7CHNSP;
 				HEADER_SEARCH_PATHS = "$(SRCROOT)/../node_modules/react-native-navigation/ios";
 				INFOPLIST_FILE = FiestaApp2017/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -1169,6 +1170,7 @@
 				PRODUCT_NAME = FiestaApp2017;
 				PROVISIONING_PROFILE = "fc80012e-b776-494e-952f-f9ac97d2a316";
 				PROVISIONING_PROFILE_SPECIFIER = FiestaApp2017;
+				TARGETED_DEVICE_FAMILY = 1;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
@@ -1182,6 +1184,7 @@
 				DEVELOPMENT_TEAM = GHJH7CHNSP;
 				HEADER_SEARCH_PATHS = "$(SRCROOT)/../node_modules/react-native-navigation/ios";
 				INFOPLIST_FILE = FiestaApp2017/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -1192,6 +1195,7 @@
 				PRODUCT_NAME = FiestaApp2017;
 				PROVISIONING_PROFILE = "fc80012e-b776-494e-952f-f9ac97d2a316";
 				PROVISIONING_PROFILE_SPECIFIER = FiestaApp2017;
+				TARGETED_DEVICE_FAMILY = 1;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
@@ -1420,6 +1424,7 @@
 				DEVELOPMENT_TEAM = GHJH7CHNSP;
 				HEADER_SEARCH_PATHS = "$(SRCROOT)/../node_modules/react-native-navigation/ios";
 				INFOPLIST_FILE = FiestaApp2017/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -1430,6 +1435,7 @@
 				PRODUCT_NAME = FiestaApp2017;
 				PROVISIONING_PROFILE = "fc80012e-b776-494e-952f-f9ac97d2a316";
 				PROVISIONING_PROFILE_SPECIFIER = FiestaApp2017;
+				TARGETED_DEVICE_FAMILY = 1;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Staging;

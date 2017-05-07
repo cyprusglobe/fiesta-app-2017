@@ -16,14 +16,12 @@ export const CHANGE_APP_STATE = 'app/CHANGE_APP_STATE';
  * Action Creators
  */
 
-export function init(startAppWithScreen, navigator) {
+export function init(startApp, navigator) {
   return async (dispatch, getState) => {
     dispatch(setupAppStatusListener());
     dispatch(setupNetStatusListener());
 
-    const navigate = startAppWithScreen
-      ? startAppWithScreen
-      : navigator.resetTo;
+    const navigate = startApp ? startApp : navigator.resetTo;
 
     // dispatch({ type: INITIALIZED, date: { time: new Date().toString() } })
     try {
@@ -37,7 +35,7 @@ export function init(startAppWithScreen, navigator) {
       dispatch({ type: INITIALIZED, error: error.message });
       navigate({ screen: 'bf.Home' });
     }
-    navigate({ screen: 'bf.Home' });
+    navigate({ screen: 'bf.Events' });
   };
 }
 

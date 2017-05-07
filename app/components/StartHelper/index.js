@@ -10,7 +10,7 @@ const StartHelper = ({ containerStyle, imageStyle }) => {
     <View style={containerStyle}>
       <Image
         source={{
-          uri: 'http://balloonfiesta.com/assets/images/fiestaballoon2.png',
+          uri: 'https://image.ibb.co/n14m35/fiestaballoon2.png',
         }}
         style={imageStyle}
         resizeMode="contain"

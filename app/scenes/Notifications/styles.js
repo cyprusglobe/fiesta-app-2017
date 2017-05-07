@@ -11,7 +11,7 @@ export default StyleSheet.create({
     height: '100%',
     // justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#DFDFDF',
+    backgroundColor: '#f0eef0',
     paddingTop: 25,
   },
 });

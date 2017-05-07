@@ -3,6 +3,7 @@
  */
 
 import { StyleSheet } from 'react-native';
+import { theme } from '../../theme';
 
 export default StyleSheet.create({
   container: {
@@ -11,7 +12,7 @@ export default StyleSheet.create({
     height: '100%',
     // justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#DFDFDF',
-    paddingTop: 25,
+    backgroundColor: theme.app.baseBlue,
+    // paddingTop: 25,
   },
 });

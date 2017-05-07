@@ -10,6 +10,8 @@ export { default as ProfileItem } from './ProfileItem';
 export { default as PilotItem } from './PilotItem';
 export { default as BalloonItem } from './BalloonItem';
 
+export { default as EventItem } from './EventItem';
+
 export { default as MenuButton } from './MenuButton';
 export { default as Menu } from './Menu';
 export { default as CountDown } from './CountDown';
@@ -18,3 +20,5 @@ export { default as Weather } from './Weather';
 export { default as CornerLabel } from './CornerLabel';
 
 export { default as ProgressiveImage } from './ProgressiveImage';
+
+export { default as ImageFullWidth } from './ImageFullWidth';

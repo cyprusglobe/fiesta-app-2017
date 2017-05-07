@@ -4,22 +4,22 @@
 
 import { StyleSheet } from 'react-native';
 
+import { theme } from '../../theme';
+
 export default StyleSheet.create({
   itemContainer: {
     flex: 1,
+    height: 70,
     // width: '100%',
     // height: '100%',
     flexDirection: 'row',
     // justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'white',
+    backgroundColor: theme.app.flatlist.balloons.item.backgroundColor,
     borderColor: 'lightgray',
     borderWidth: StyleSheet.hairlineWidth,
-    marginRight: 25,
-    marginLeft: 25,
-    elevation: 4,
-    marginTop: 5,
-    marginBottom: 5,
+
+    elevation: 2,
   },
   itemSeperator: {
     height: 10,
@@ -30,6 +30,7 @@ export default StyleSheet.create({
     margin: 10,
   },
   textContainer: {
+    paddingLeft: 20,
     flexDirection: 'column',
   },
   titleText: {

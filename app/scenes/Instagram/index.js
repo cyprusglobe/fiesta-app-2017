@@ -19,6 +19,10 @@ class Instagram extends Component {
     ...config.navigatorStyles,
   };
 
+  static navigatorButtons = {
+    ...config.navigatorButtons,
+  };
+
   goTo = () => {
     this.props.navigator.push({
       screen: 'bf.Home', // unique ID registered with Navigation.registerScreen
@@ -55,7 +59,7 @@ const styles = StyleSheet.create({
     height: '100%',
     // justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#DFDFDF',
+    backgroundColor: '#f0eef0',
     paddingTop: 64,
   },
 });

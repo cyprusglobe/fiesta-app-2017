@@ -15,7 +15,6 @@ class InstagramPhotos extends PureComponent {
   };
 
   async componentDidMount() {
-    console.log(this.props);
     this._isMounted = true;
     let { profile } = this.props;
 

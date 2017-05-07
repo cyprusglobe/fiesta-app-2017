@@ -17,7 +17,13 @@ const navigatorStyles = {
   drawerBackgroundColor: theme.app.drawer.backgroundColor,
 };
 
-const navigatorButtons = {};
+const navigatorButtons = {
+  leftButtons: [
+    {
+      id: 'sideMenu',
+    },
+  ],
+};
 
 export const config = {
   navigatorStyles,

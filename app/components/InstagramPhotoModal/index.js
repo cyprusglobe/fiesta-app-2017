@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import { View, TouchableOpacity, Text, Image } from 'react-native';
+import { View, TouchableOpacity, Text, Image, Platform } from 'react-native';
 
 import { theme } from '../../theme';
-import { iconsMap, iconsLoaded } from '../../utils/appIcons';
 
 import styles from './styles';
 
@@ -10,9 +9,12 @@ import Icon from 'react-native-vector-icons/Ionicons';
 
 export default class InstagramPhotoModal extends Component {
   static navigatorStyle = {
-    drawUnderNavBar: false,
+    drawUnderNavBar: Platform.OS === 'android' ? false : true,
     navBarTransparent: true,
     navBarTranslucent: true,
+    navBarButtonColor: Platform.OS === 'android' ? 'white' : 'black',
+    navBarTextColor: 'black',
+    backButtonHidden: false,
   };
 
   constructor(props) {
@@ -21,9 +23,9 @@ export default class InstagramPhotoModal extends Component {
   }
 
   _onNavigatorEvent(event) {
-    console.log(event);
+    console.log(event.type);
     if (event.type === 'NavBarButtonPress') {
-      if (event.id === 'cancel') {
+      if (event.id === 'close-modal-instagram') {
         this.props.navigator.dismissModal({ animationType: 'slide-up' });
       }
     }

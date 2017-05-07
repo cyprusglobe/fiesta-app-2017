@@ -14,7 +14,7 @@ class Landing extends Component {
   goTo = () => {
     this.props.navigator.push({
       screen: 'bf.Settings', // unique ID registered with Navigation.registerScreen
-      title: 'Settings',
+      title: 'Settings', // title of next scene
     });
   };
 
@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
     height: '100%',
     // justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#DFDFDF',
+    backgroundColor: '#f0eef0',
     paddingTop: 25,
   },
 });

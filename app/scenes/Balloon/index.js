@@ -14,7 +14,7 @@ import {
   Alert,
 } from 'react-native';
 
-import { PilotItem } from '../../components';
+import { PilotItem, ImageFullWidth } from '../../components';
 
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
@@ -29,6 +29,7 @@ class Balloon extends Component {
   static navigatorStyle = {
     ...config.navigatorStyles,
   };
+
   state = {
     liked: false,
   };
@@ -46,7 +47,7 @@ class Balloon extends Component {
     const { navigator } = this.props;
 
     Alert.alert(
-      'Question',
+      "Require's Attention",
       `Would you like to view the Primary Pilot for "${balloon.name}"`,
       [
         {
@@ -71,24 +72,25 @@ class Balloon extends Component {
   };
 
   render() {
-    const { pilot, balloon, navigator } = this.props;
-    const image_url = `${Constants.IMAGE_URL}/${balloon.reg_num}/x800`;
-
+    const { pilot, balloon, navigator, isPreview } = this.props;
+    const image_url = `${Constants.IMAGE_URL}/${balloon.reg_num}/x300`;
+    const image_small_url = `${Constants.IMAGE_URL}/${balloon.reg_num}/x5`;
     return (
       <View style={styles.container}>
-        <ScrollView style={{ flex: 1 }}>
-          <Image
-            source={{ uri: image_url }}
-            style={{ height: 400, width: Dimensions.get('window').width }}
-            resizeMode="cover"
+        <ScrollView style={{ width: '100%' }}>
+          <ImageFullWidth
+            src={image_url}
+            placeholder={image_small_url}
+            style={{ height: 296 }}
+            placeholderStyle={{ height: 296 }}
+            duration={1000}
           />
           <View
             style={{
               height: 44,
-              backgroundColor: theme.app.baseBlue,
-              elevation: 5,
-              marginTop: 0,
-              marginBottom: 8,
+              backgroundColor: theme.app.baseRed,
+              elevation: 2,
+              marginBottom: 2,
               paddingLeft: 10,
               flexDirection: 'row',
               alignItems: 'center',
@@ -101,16 +103,37 @@ class Balloon extends Component {
               paddingRight: 10,
             })}
           </View>
-          <Text>Primary Pilot</Text>
-          <PilotItem
-            pilot={pilot}
-            onPressAction={() =>
-              navigator.push({
-                screen: 'bf.Pilot',
-                title: pilot.common_name,
-                passProps: { pilot: pilot, isPreview: true },
-              })}
-          />
+
+          {isPreview
+            ? null
+            : <View style={{ width: '100%' }}>
+                {pilot
+                  ? <View
+                      style={{
+                        backgroundColor: '#f7f7f7',
+                        marginTop: 16,
+                        marginBottom: 16,
+                        padding: 10,
+                        elevation: 2,
+                      }}
+                    >
+                      <Text style={{ alignSelf: 'center' }}>Primary Pilot</Text>
+                    </View>
+                  : null}
+
+                <View style={{ width: '100%' }}>
+                  <PilotItem
+                    pilot={pilot}
+                    onPressAction={() =>
+                      navigator.push({
+                        screen: 'bf.Pilot',
+                        title: pilot.common_name,
+                        passProps: { pilot: pilot, isPreview: true },
+                      })}
+                  />
+                </View>
+
+              </View>}
         </ScrollView>
       </View>
     );
@@ -121,7 +144,6 @@ class Balloon extends Component {
   const { navigation } = props;
   const { state, setParams, navigate } = navigation;
   const { params } = state;
-  console.log(params);
   return {
     ...config.navigationOptions,
     headerTitle: navigation.state.params.balloon.name,

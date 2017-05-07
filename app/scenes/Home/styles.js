@@ -2,6 +2,8 @@
  * @flow
  */
 
+import { theme } from '../../theme';
+
 import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
@@ -11,7 +13,7 @@ export default StyleSheet.create({
     height: '100%',
     // justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#DFDFDF',
+    backgroundColor: theme.app.baseBlue,
     paddingTop: 25,
   },
 });

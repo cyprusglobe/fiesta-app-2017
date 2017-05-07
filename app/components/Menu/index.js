@@ -48,7 +48,6 @@ class Menu extends Component {
     this.toggleDrawer('closed', 'left', true);
 
     if (scene !== 'Home') {
-      console.log(scene);
       this.props.navigator.resetTo({
         screen: `bf.${scene}`,
         title: sceneTitle ? sceneTitle : 'Title',

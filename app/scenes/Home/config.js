@@ -21,7 +21,22 @@ const navigatorStyles = {
   drawerBackgroundColor: theme.app.drawer.backgroundColor,
 };
 
-const navigatorButtons = {};
+const navigatorButtons = {
+  leftButtons: [
+    {
+      id: 'sideMenu',
+      // icon: iconsMap['menu-white'],
+      // showAsAction: 'always'
+    },
+  ],
+  rightButtons: [
+    {
+      title: 'Search',
+      id: 'search',
+      showAsAction: 'always',
+    },
+  ],
+};
 
 export const config = {
   navigatorStyles,

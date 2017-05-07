@@ -1,11 +1,11 @@
 package com.fiestaapp2017;
 
+import com.airbnb.android.react.maps.MapsPackage;
 import com.facebook.react.ReactPackage;
-import com.microsoft.codepush.react.CodePush;
-import com.reactnativenavigation.NavigationApplication;
-import com.oblador.vectoricons.VectorIconsPackage;
 import com.facebook.soloader.SoLoader;
-
+import com.microsoft.codepush.react.CodePush;
+import com.oblador.vectoricons.VectorIconsPackage;
+import com.reactnativenavigation.NavigationApplication;
 
 import java.util.Arrays;
 import java.util.List;
@@ -22,7 +22,8 @@ public class MainApplication extends NavigationApplication {
   public List<ReactPackage> createAdditionalReactPackages() {
     return Arrays.<ReactPackage>asList(
             new CodePush("rGBMHmBiNyufw2vac_zSx0g985fS4JhxgyNoG", MainApplication.this, BuildConfig.DEBUG),
-            new VectorIconsPackage()
+            new VectorIconsPackage(),
+            new MapsPackage()
     );
   }
 

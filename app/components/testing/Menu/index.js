@@ -2,7 +2,7 @@
  * @flow
  */
 
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import {
   Image,
   FlatList,
@@ -23,7 +23,7 @@ import { MenuItemTesting as MenuItem } from '../';
 
 import styles from './styles';
 
-class MenuTesting extends Component {
+class MenuTesting extends PureComponent {
   state = {
     currentScreen: 'Home',
     editProfilesInProgress: false,
@@ -32,13 +32,19 @@ class MenuTesting extends Component {
         key: 1,
         name: 'Home',
         title: 'Home',
-        iconUrl: require('/Users/insomnia/Code/_work/fiesta-app-2017/images/home_nav_button_android.png'),
+        iconUrl: require('../../../../images/home_nav_button_android.png'),
+      },
+      {
+        key: 7,
+        name: 'Events',
+        title: 'Events Schedule',
+        iconUrl: require('../../../../images/events_nav_button_android.png'),
       },
       {
         key: 2,
         name: 'Welcome',
         title: 'Tour',
-        iconUrl: require('/Users/insomnia/Code/_work/fiesta-app-2017/images/tour_nav_button.png'),
+        iconUrl: require('../../../../images/tour_nav_button.png'),
       },
       {
         key: 3,
@@ -83,9 +89,8 @@ class MenuTesting extends Component {
     // alert(scene)
     this.toggleDrawer('closed', 'left', true);
 
-    this.props.navigator.push({
-      screen: `bf.${scene}`,
-      title: sceneTitle ? sceneTitle : 'Title',
+    this.props.navigator.resetTo({
+      screen: `bf.${scene.replace(' ', '')}`,
     });
 
     // this.props.navigator.popToRoot({ animated: true });
@@ -103,7 +108,12 @@ class MenuTesting extends Component {
               { flexDirection: 'column', paddingBottom: 10 },
             ]}
           >
-            <Image source={item.iconUrl} style={{ width: 50, height: 50 }} />
+            <Image
+              source={item.iconUrl}
+              resizeMode="contain"
+              resizeMethod="scale"
+              style={{ width: 48, height: 48 }}
+            />
             <Text style={{ color: 'white', fontWeight: '600' }}>
               {item.title}
             </Text>

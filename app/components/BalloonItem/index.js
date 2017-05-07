@@ -1,39 +1,55 @@
-import React from 'react';
-import { View, Text, Image, TouchableOpacity } from 'react-native';
+/**
+ * @flow
+ */
 
-import Icon from 'react-native-vector-icons/Ionicons';
+import React from 'react';
+import { View, Text, Image, TouchableNativeFeedback } from 'react-native';
+import * as Constants from '../../constants';
+import { theme } from '../../theme';
 
 import styles from './styles';
-import * as Constants from '../../constants';
+
+// import Icon from 'react-native-vector-icons/Ionicons';
+// import * as Constants from '../../constants';
 
 const BalloonItem = ({ balloon, onPressAction, onLongPressAction }) => {
   const image_url = `${Constants.IMAGE_URL}/${balloon.reg_num}/200x`;
+
   return (
-    <TouchableOpacity
-      style={[styles.itemContainer]}
+    <TouchableNativeFeedback
+      background={TouchableNativeFeedback.Ripple(theme.app.baseBlue, true)}
+      useForeground
+      onPress={onPressAction}
       onPress={onPressAction}
       onLongPress={onLongPressAction}
     >
-      <Image
-        key={balloon.reg_num}
-        source={{ uri: image_url }}
-        style={styles.balloonImage}
-        resizeMode="contain"
-      />
-      <View style={[styles.textContainer, { flex: 1 }]}>
-        {balloon.competition_balloon
-          ? <Icon
-              name="md-trophy"
-              size={14}
-              color="gray"
-              style={{ alignSelf: 'flex-end', paddingRight: 10 }}
-            />
-          : null}
-        <Text style={styles.titleText}>{balloon.name}</Text>
-        <Text style={styles.subTitleText}>{balloon.reg_num}</Text>
-      </View>
+      <View style={[styles.itemContainer]}>
 
-    </TouchableOpacity>
+        <View style={{ flex: 0.2 }}>
+          <Image
+            key={balloon.reg_num}
+            source={{ uri: image_url }}
+            style={styles.balloonImage}
+            resizeMode="contain"
+          />
+
+        </View>
+
+        <View style={[styles.textContainer, { flex: 0.8 }]}>
+          <Text style={[styles.titleText]}>{balloon.balloon_name}</Text>
+          <Text style={[styles.subTitleText]}>{balloon.reg_num}</Text>
+        </View>
+
+        <Text
+          style={[
+            styles.subTitleText,
+            { alignSelf: 'flex-end', paddingRight: 5 },
+          ]}
+        >
+          Balloon
+        </Text>
+      </View>
+    </TouchableNativeFeedback>
   );
 };
 

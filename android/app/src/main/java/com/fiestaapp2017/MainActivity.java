@@ -14,7 +14,7 @@ public class MainActivity extends SplashActivity {
         LinearLayout view = new LinearLayout(this);
         TextView textView = new TextView(this);
 
-        view.setBackgroundColor(Color.parseColor("#E20354"));
+        view.setBackgroundColor(Color.parseColor("#2C5197"));
         view.setGravity(Gravity.CENTER);
 
         textView.setTextColor(Color.parseColor("#FFFFFF"));

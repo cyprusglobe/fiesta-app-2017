@@ -3,10 +3,12 @@
  */
 
 import { Navigation } from 'react-native-navigation';
-
+import { Platform } from 'react-native';
 import { init, star } from '../modules/app';
 
 import Menu from './Menu';
+import Events from './EventsSchedule';
+
 import Balloon from './Balloon';
 import Balloons from './Balloons';
 import Pilot from './Pilot';
@@ -14,8 +16,9 @@ import Pilots from './Pilots';
 import Instagram from './Instagram';
 import Home from './Home';
 import Welcome from './Welcome';
-
+import Search from './Search';
 import InstagramPhotoModal from '../components/InstagramPhotoModal';
+import EventDetail from './EventDetail';
 
 class Application {
   constructor(store, Provider) {
@@ -26,7 +29,11 @@ class Application {
   }
 
   run() {
-    this._store.dispatch(init(this.startAppWithScreen));
+    const startApp = Platform.OS === 'android'
+      ? this.startAppWithScreen
+      : this.startAppWithTabs;
+
+    this._store.dispatch(init(startApp));
   }
 
   _configureScreens(store, Provider) {
@@ -40,6 +47,9 @@ class Application {
       Instagram,
       Welcome,
       InstagramPhotoModal,
+      Search,
+      Events,
+      EventDetail,
     };
 
     Object.keys(screens).map(key => {
@@ -52,10 +62,10 @@ class Application {
     });
   }
 
-  startAppWithScreen({ screen }) {
+  startAppWithScreen({ screen, passProps = {} }) {
     Navigation.startSingleScreenApp({
       screen: {
-        screen: screen, // unique ID registered with Navigation.registerScreen
+        screen, // unique ID registered with Navigation.registerScreen
         title: 'Home', // title of the screen as appears in the nav bar (optional)
         leftButtons: [
           {
@@ -70,6 +80,27 @@ class Application {
           screen: 'bf.Menu',
         },
       },
+    });
+  }
+
+  startAppWithTabs({ screen, passProps = {} }) {
+    Navigation.startTabBasedApp({
+      tabs: [
+        {
+          label: 'Home',
+          screen: 'bf.Home', // this is a registered name for a screen
+          // icon: require('../img/one.png'),
+          // selectedIcon: require('../img/one_selected.png'), // iOS only
+        },
+        {
+          label: 'Pilots',
+          screen: 'bf.Pilots',
+        },
+        {
+          label: 'Balloons',
+          screen: 'bf.Balloons',
+        },
+      ],
     });
   }
 }

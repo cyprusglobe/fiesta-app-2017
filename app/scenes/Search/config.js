@@ -14,4 +14,17 @@ const navigatorStyles = {
   drawerBackgroundColor: theme.app.drawer.backgroundColor,
 };
 
+const navigatorButtons = {
+  leftButtons: [
+    {
+      id: 'back',
+    },
+  ],
+};
+
+export const config = {
+  navigatorStyles,
+  navigatorButtons,
+};
+
 export default navigatorStyles;

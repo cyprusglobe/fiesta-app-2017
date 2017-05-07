@@ -1,7 +1,6 @@
 import { Platform, PixelRatio } from 'react-native';
 
 export { default as syncEnhancer } from './syncEnhancer';
-export { iconsMap, iconsLoaded } from './appIcons';
 export { combineStyles } from './combineStyles';
 export { loadIconImages } from './iconImages.js';
 
@@ -25,6 +24,20 @@ switchIconPerPlatform = (iconName, ios, md) => {
   // }
 };
 
+const switchStylePerPlatform = (ios: Object, md: Object, shareable: Object) => {
+  const ios_theme = ios === null ? {} : ios;
+  const md_theme = md === null ? {} : md;
+  const share_theme = shareable === null ? {} : shareable;
+
+  const cur_plat = Platform.OS === 'ios' ? 'ios' : 'md';
+
+  if (cur_plat === 'ios') {
+    return { ...ios_theme, ...share_theme };
+  }
+
+  return { ...md_theme, ...share_theme };
+};
+
 getIconSizePixelRatio = size => {
   // if (__DEV__ === true && Platform.OS === 'android') {
   //   return PixelRatio.getPixelSizeForLayoutSize(size);
@@ -46,4 +59,9 @@ selectPlatform = (platform, enabled) => {
   return !enabled;
 };
 
-export { switchIconPerPlatform, getIconSizePixelRatio, selectPlatform };
+export {
+  switchIconPerPlatform,
+  getIconSizePixelRatio,
+  selectPlatform,
+  switchStylePerPlatform,
+};

@@ -4,12 +4,24 @@
 
 import React, { Component } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
-import navigatorStyles from './config';
+import { config } from './config';
 
 class Search extends Component {
   static navigatorStyle = {
-    ...navigatorStyles,
+    ...config.navigatorStyles,
   };
+
+  constructor(props) {
+    super(props);
+
+    this.props.navigator.setButtons({
+      ...config.navigatorButtons,
+    });
+
+    this.props.navigator.setTitle({
+      title: 'Search',
+    });
+  }
 
   goTo = (scene: string) => {
     this.props.navigator.push({
@@ -32,7 +44,7 @@ const styles = StyleSheet.create({
     height: '100%',
     // justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#DFDFDF',
+    backgroundColor: '#f0eef0',
     paddingTop: 25,
   },
 });

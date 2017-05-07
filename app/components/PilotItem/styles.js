@@ -7,6 +7,7 @@ import { StyleSheet } from 'react-native';
 export default StyleSheet.create({
   itemContainer: {
     flex: 1,
+    height: 70,
     // width: '100%',
     // height: '100%',
     flexDirection: 'row',
@@ -17,9 +18,9 @@ export default StyleSheet.create({
     borderWidth: StyleSheet.hairlineWidth,
     marginRight: 25,
     marginLeft: 25,
-    elevation: 4,
-    marginTop: 5,
-    marginBottom: 5,
+    elevation: 2,
+    marginTop: 2,
+    marginBottom: 2,
   },
   itemSeperator: {
     height: 10,
